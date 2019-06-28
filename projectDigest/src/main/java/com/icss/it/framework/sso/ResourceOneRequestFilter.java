@@ -25,6 +25,8 @@ public class ResourceOneRequestFilter implements Filter {
 			throws IOException, ServletException {
 		 try
 		 {
+			 
+			 System.out.println("in withShiro");
 			 System.out.println("start ResourceOneRequestFilter handler");
 			 
 			 HttpServletRequest httpReq = (HttpServletRequest)request;
