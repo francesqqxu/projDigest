@@ -1412,6 +1412,776 @@ public class TProjdigestOldExample {
 			return (Criteria) this;
 		}
 
+		public Criteria andProjBackbone4IsNull() {
+			addCriterion("proj_backbone4 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4IsNotNull() {
+			addCriterion("proj_backbone4 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4EqualTo(String value) {
+			addCriterion("proj_backbone4 =", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4NotEqualTo(String value) {
+			addCriterion("proj_backbone4 <>", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4GreaterThan(String value) {
+			addCriterion("proj_backbone4 >", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone4 >=", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4LessThan(String value) {
+			addCriterion("proj_backbone4 <", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone4 <=", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4Like(String value) {
+			addCriterion("proj_backbone4 like", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4NotLike(String value) {
+			addCriterion("proj_backbone4 not like", value, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4In(List<String> values) {
+			addCriterion("proj_backbone4 in", values, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4NotIn(List<String> values) {
+			addCriterion("proj_backbone4 not in", values, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4Between(String value1, String value2) {
+			addCriterion("proj_backbone4 between", value1, value2, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone4NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone4 not between", value1, value2, "projBackbone4");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5IsNull() {
+			addCriterion("proj_backbone5 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5IsNotNull() {
+			addCriterion("proj_backbone5 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5EqualTo(String value) {
+			addCriterion("proj_backbone5 =", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5NotEqualTo(String value) {
+			addCriterion("proj_backbone5 <>", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5GreaterThan(String value) {
+			addCriterion("proj_backbone5 >", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone5 >=", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5LessThan(String value) {
+			addCriterion("proj_backbone5 <", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone5 <=", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5Like(String value) {
+			addCriterion("proj_backbone5 like", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5NotLike(String value) {
+			addCriterion("proj_backbone5 not like", value, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5In(List<String> values) {
+			addCriterion("proj_backbone5 in", values, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5NotIn(List<String> values) {
+			addCriterion("proj_backbone5 not in", values, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5Between(String value1, String value2) {
+			addCriterion("proj_backbone5 between", value1, value2, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone5NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone5 not between", value1, value2, "projBackbone5");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6IsNull() {
+			addCriterion("proj_backbone6 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6IsNotNull() {
+			addCriterion("proj_backbone6 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6EqualTo(String value) {
+			addCriterion("proj_backbone6 =", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6NotEqualTo(String value) {
+			addCriterion("proj_backbone6 <>", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6GreaterThan(String value) {
+			addCriterion("proj_backbone6 >", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone6 >=", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6LessThan(String value) {
+			addCriterion("proj_backbone6 <", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone6 <=", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6Like(String value) {
+			addCriterion("proj_backbone6 like", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6NotLike(String value) {
+			addCriterion("proj_backbone6 not like", value, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6In(List<String> values) {
+			addCriterion("proj_backbone6 in", values, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6NotIn(List<String> values) {
+			addCriterion("proj_backbone6 not in", values, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6Between(String value1, String value2) {
+			addCriterion("proj_backbone6 between", value1, value2, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone6NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone6 not between", value1, value2, "projBackbone6");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7IsNull() {
+			addCriterion("proj_backbone7 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7IsNotNull() {
+			addCriterion("proj_backbone7 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7EqualTo(String value) {
+			addCriterion("proj_backbone7 =", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7NotEqualTo(String value) {
+			addCriterion("proj_backbone7 <>", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7GreaterThan(String value) {
+			addCriterion("proj_backbone7 >", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone7 >=", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7LessThan(String value) {
+			addCriterion("proj_backbone7 <", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone7 <=", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7Like(String value) {
+			addCriterion("proj_backbone7 like", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7NotLike(String value) {
+			addCriterion("proj_backbone7 not like", value, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7In(List<String> values) {
+			addCriterion("proj_backbone7 in", values, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7NotIn(List<String> values) {
+			addCriterion("proj_backbone7 not in", values, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7Between(String value1, String value2) {
+			addCriterion("proj_backbone7 between", value1, value2, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone7NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone7 not between", value1, value2, "projBackbone7");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8IsNull() {
+			addCriterion("proj_backbone8 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8IsNotNull() {
+			addCriterion("proj_backbone8 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8EqualTo(String value) {
+			addCriterion("proj_backbone8 =", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8NotEqualTo(String value) {
+			addCriterion("proj_backbone8 <>", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8GreaterThan(String value) {
+			addCriterion("proj_backbone8 >", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone8 >=", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8LessThan(String value) {
+			addCriterion("proj_backbone8 <", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone8 <=", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8Like(String value) {
+			addCriterion("proj_backbone8 like", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8NotLike(String value) {
+			addCriterion("proj_backbone8 not like", value, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8In(List<String> values) {
+			addCriterion("proj_backbone8 in", values, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8NotIn(List<String> values) {
+			addCriterion("proj_backbone8 not in", values, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8Between(String value1, String value2) {
+			addCriterion("proj_backbone8 between", value1, value2, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone8NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone8 not between", value1, value2, "projBackbone8");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9IsNull() {
+			addCriterion("proj_backbone9 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9IsNotNull() {
+			addCriterion("proj_backbone9 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9EqualTo(String value) {
+			addCriterion("proj_backbone9 =", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9NotEqualTo(String value) {
+			addCriterion("proj_backbone9 <>", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9GreaterThan(String value) {
+			addCriterion("proj_backbone9 >", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone9 >=", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9LessThan(String value) {
+			addCriterion("proj_backbone9 <", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone9 <=", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9Like(String value) {
+			addCriterion("proj_backbone9 like", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9NotLike(String value) {
+			addCriterion("proj_backbone9 not like", value, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9In(List<String> values) {
+			addCriterion("proj_backbone9 in", values, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9NotIn(List<String> values) {
+			addCriterion("proj_backbone9 not in", values, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9Between(String value1, String value2) {
+			addCriterion("proj_backbone9 between", value1, value2, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone9NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone9 not between", value1, value2, "projBackbone9");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10IsNull() {
+			addCriterion("proj_backbone10 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10IsNotNull() {
+			addCriterion("proj_backbone10 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10EqualTo(String value) {
+			addCriterion("proj_backbone10 =", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10NotEqualTo(String value) {
+			addCriterion("proj_backbone10 <>", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10GreaterThan(String value) {
+			addCriterion("proj_backbone10 >", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone10 >=", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10LessThan(String value) {
+			addCriterion("proj_backbone10 <", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone10 <=", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10Like(String value) {
+			addCriterion("proj_backbone10 like", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10NotLike(String value) {
+			addCriterion("proj_backbone10 not like", value, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10In(List<String> values) {
+			addCriterion("proj_backbone10 in", values, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10NotIn(List<String> values) {
+			addCriterion("proj_backbone10 not in", values, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10Between(String value1, String value2) {
+			addCriterion("proj_backbone10 between", value1, value2, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone10NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone10 not between", value1, value2, "projBackbone10");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11IsNull() {
+			addCriterion("proj_backbone11 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11IsNotNull() {
+			addCriterion("proj_backbone11 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11EqualTo(String value) {
+			addCriterion("proj_backbone11 =", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11NotEqualTo(String value) {
+			addCriterion("proj_backbone11 <>", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11GreaterThan(String value) {
+			addCriterion("proj_backbone11 >", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone11 >=", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11LessThan(String value) {
+			addCriterion("proj_backbone11 <", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone11 <=", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11Like(String value) {
+			addCriterion("proj_backbone11 like", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11NotLike(String value) {
+			addCriterion("proj_backbone11 not like", value, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11In(List<String> values) {
+			addCriterion("proj_backbone11 in", values, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11NotIn(List<String> values) {
+			addCriterion("proj_backbone11 not in", values, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11Between(String value1, String value2) {
+			addCriterion("proj_backbone11 between", value1, value2, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone11NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone11 not between", value1, value2, "projBackbone11");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12IsNull() {
+			addCriterion("proj_backbone12 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12IsNotNull() {
+			addCriterion("proj_backbone12 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12EqualTo(String value) {
+			addCriterion("proj_backbone12 =", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12NotEqualTo(String value) {
+			addCriterion("proj_backbone12 <>", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12GreaterThan(String value) {
+			addCriterion("proj_backbone12 >", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone12 >=", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12LessThan(String value) {
+			addCriterion("proj_backbone12 <", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone12 <=", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12Like(String value) {
+			addCriterion("proj_backbone12 like", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12NotLike(String value) {
+			addCriterion("proj_backbone12 not like", value, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12In(List<String> values) {
+			addCriterion("proj_backbone12 in", values, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12NotIn(List<String> values) {
+			addCriterion("proj_backbone12 not in", values, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12Between(String value1, String value2) {
+			addCriterion("proj_backbone12 between", value1, value2, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone12NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone12 not between", value1, value2, "projBackbone12");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13IsNull() {
+			addCriterion("proj_backbone13 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13IsNotNull() {
+			addCriterion("proj_backbone13 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13EqualTo(String value) {
+			addCriterion("proj_backbone13 =", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13NotEqualTo(String value) {
+			addCriterion("proj_backbone13 <>", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13GreaterThan(String value) {
+			addCriterion("proj_backbone13 >", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone13 >=", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13LessThan(String value) {
+			addCriterion("proj_backbone13 <", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone13 <=", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13Like(String value) {
+			addCriterion("proj_backbone13 like", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13NotLike(String value) {
+			addCriterion("proj_backbone13 not like", value, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13In(List<String> values) {
+			addCriterion("proj_backbone13 in", values, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13NotIn(List<String> values) {
+			addCriterion("proj_backbone13 not in", values, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13Between(String value1, String value2) {
+			addCriterion("proj_backbone13 between", value1, value2, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone13NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone13 not between", value1, value2, "projBackbone13");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14IsNull() {
+			addCriterion("proj_backbone14 is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14IsNotNull() {
+			addCriterion("proj_backbone14 is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14EqualTo(String value) {
+			addCriterion("proj_backbone14 =", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14NotEqualTo(String value) {
+			addCriterion("proj_backbone14 <>", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14GreaterThan(String value) {
+			addCriterion("proj_backbone14 >", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14GreaterThanOrEqualTo(String value) {
+			addCriterion("proj_backbone14 >=", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14LessThan(String value) {
+			addCriterion("proj_backbone14 <", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14LessThanOrEqualTo(String value) {
+			addCriterion("proj_backbone14 <=", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14Like(String value) {
+			addCriterion("proj_backbone14 like", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14NotLike(String value) {
+			addCriterion("proj_backbone14 not like", value, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14In(List<String> values) {
+			addCriterion("proj_backbone14 in", values, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14NotIn(List<String> values) {
+			addCriterion("proj_backbone14 not in", values, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14Between(String value1, String value2) {
+			addCriterion("proj_backbone14 between", value1, value2, "projBackbone14");
+			return (Criteria) this;
+		}
+
+		public Criteria andProjBackbone14NotBetween(String value1, String value2) {
+			addCriterion("proj_backbone14 not between", value1, value2, "projBackbone14");
+			return (Criteria) this;
+		}
+
 		public Criteria andProjBeginDateIsNull() {
 			addCriterion("proj_begin_date is null");
 			return (Criteria) this;
@@ -2739,76 +3509,6 @@ public class TProjdigestOldExample {
 
 		public Criteria andConstraintDependNotBetween(String value1, String value2) {
 			addCriterion("constraint_depend not between", value1, value2, "constraintDepend");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3IsNull() {
-			addCriterion("proj_back_bone3 is null");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3IsNotNull() {
-			addCriterion("proj_back_bone3 is not null");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3EqualTo(String value) {
-			addCriterion("proj_back_bone3 =", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3NotEqualTo(String value) {
-			addCriterion("proj_back_bone3 <>", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3GreaterThan(String value) {
-			addCriterion("proj_back_bone3 >", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3GreaterThanOrEqualTo(String value) {
-			addCriterion("proj_back_bone3 >=", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3LessThan(String value) {
-			addCriterion("proj_back_bone3 <", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3LessThanOrEqualTo(String value) {
-			addCriterion("proj_back_bone3 <=", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3Like(String value) {
-			addCriterion("proj_back_bone3 like", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3NotLike(String value) {
-			addCriterion("proj_back_bone3 not like", value, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3In(List<String> values) {
-			addCriterion("proj_back_bone3 in", values, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3NotIn(List<String> values) {
-			addCriterion("proj_back_bone3 not in", values, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3Between(String value1, String value2) {
-			addCriterion("proj_back_bone3 between", value1, value2, "projBackBone3");
-			return (Criteria) this;
-		}
-
-		public Criteria andProjBackBone3NotBetween(String value1, String value2) {
-			addCriterion("proj_back_bone3 not between", value1, value2, "projBackBone3");
 			return (Criteria) this;
 		}
 	}

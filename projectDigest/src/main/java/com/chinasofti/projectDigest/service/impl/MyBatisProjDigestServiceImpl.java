@@ -84,26 +84,41 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 				if(excelfile.getSize() > 0 ) {
 					    fileName = excelfile.getOriginalFilename();
 					    in = excelfile.getInputStream();
-						List<String>  titles = java.util.Arrays.asList( ExcelUtils.readExcelTitle(fileName,in));
-						List<String> titlesColumn= serviceUtil.transferToColumnTitle(fileName,titles);
-						ruleViolation = serviceUtil.checkColumnTitle(fileName, titles);
+						List<String>  titles = ExcelUtils.readExcelTitle(fileName,in);
+						ruleViolation = serviceUtil.checkTitleSize47(fileName, titles);
 						if(null != ruleViolation) {
 							RuleViolations.add(ruleViolation);
 						}
-						else
-						{
-							List<Object> cellValues = ExcelUtils.readExcelContent(fileName, in);
+						else {
 							
-							TProjdigestOld tProjDigestOld = new TProjdigestOld();
+							List<String> titlesColumn= serviceUtil.transferToColumnTitle(fileName,titles);
+							ruleViolation = serviceUtil.checkColumnTitle(fileName, titles);
+							if(null != ruleViolation) {
+								RuleViolations.add(ruleViolation);
+							}else {
 							
-							tProjDigestOld = ExcelUtils.transToObject(titlesColumn, cellValues, TProjdigestOld.class);
-						    
-							tProjdigestOlds.add(tProjDigestOld);
+								List<Object> cellValues = ExcelUtils.readExcelContent(fileName, in);
+									
+								TProjdigestOld tProjDigestOld = new TProjdigestOld();
+									
+								tProjDigestOld = ExcelUtils.transToObject(titlesColumn, cellValues, TProjdigestOld.class);
+								    
+							    tProjdigestOlds.add(tProjDigestOld);
+							}
+							 
 						}
 					
 					}
 					 
 				} // end of for
+			
+				if(RuleViolations.size() > 0 ) {
+					LOGGER.info("与标准列数不一致的文件数为： {}",RuleViolations.size());
+					//LOGGER.info(serviceUtil.RuleViolationsString(RuleViolations));
+					serviceUtil.LogRuleViolations(RuleViolations);
+					throw new TipException( serviceUtil.RuleViolationsString(RuleViolations));
+				}
+			
 				for(TProjdigestOld tProjdigestOld:tProjdigestOlds ) {
 					LOGGER.info("tProjDigestsOld[{}].projOutComeId = {}", tProjdigestOlds.indexOf(tProjdigestOld),tProjdigestOld.getProjOutcomeId());
 				}
@@ -119,6 +134,7 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 				LOGGER.info("tProjDigests number {}",tProjdigests.size());
 		        
 				for(TProjdigestOld tProjdigestOld:tProjdigestOlds ) {
+					 
 					tProjdigestOldMapper.insert3(tProjdigestOld);
 			    }
 				
@@ -126,9 +142,7 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 					tProjdigestMapper.insert3(tProjdigest);
 				}
 				
-				if(RuleViolations.size() > 0 ) {
-					throw new TipException( serviceUtil.RuleViolationsString(RuleViolations));
-				}
+				
 		}catch(Exception ex){
 			throw new TipException("导入项目摘要信息出错，请联系管理人员 " + ex.getMessage());
 		}   

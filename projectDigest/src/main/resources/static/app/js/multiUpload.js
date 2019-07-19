@@ -42,6 +42,7 @@ function ajaxFileUpload(){
 				else if(data.success == false){
 				   $.messager.show({
 						title : '出错信息',
+						timeout: 5000,
 						msg :   data.msg
 					});
 				}

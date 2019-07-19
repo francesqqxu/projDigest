@@ -39,7 +39,7 @@ public class MyBatisProjDigestServiceTest {
                 
 	            // 对读取Excel表格标题测试  
 				in = new FileInputStream(file);
-		        List<String> titles = java.util.Arrays.asList(ExcelUtils.readExcelTitle(file, in));  
+		        List<String> titles = ExcelUtils.readExcelTitle(file, in);  
 		        System.out.println("获得Excel表格的标题:");  
 		         for (String s : titles) {  
 		              System.out.print(s + " ");  

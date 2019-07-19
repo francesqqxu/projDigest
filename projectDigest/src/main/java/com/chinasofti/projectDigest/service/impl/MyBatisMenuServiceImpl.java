@@ -16,10 +16,15 @@ public class MyBatisMenuServiceImpl implements MyBatisMenuService{
 	private TMenuMapper tMenuMapper;
 	
 	@Override
-	public List<TMenu> getMenuByPid(int pid){
+	public List<TMenu> getMenuByPid(int pid,Boolean isAdmin){
 		
 		TMenuExample  tMenuExample =  new TMenuExample();
-		tMenuExample.createCriteria().andPidEqualTo(pid);
+		TMenuExample.Criteria criteria  = tMenuExample.createCriteria();
+		
+		criteria.andPidEqualTo(pid);
+		if(!isAdmin) {
+			criteria.andPermNotEqualTo("admin");
+		}
 		
 		return tMenuMapper.selectByExample(tMenuExample);
 	}

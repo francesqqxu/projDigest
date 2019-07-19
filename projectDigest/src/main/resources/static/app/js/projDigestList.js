@@ -12,9 +12,12 @@ $(function(){
 	 
    	var url;
 	var hideIndexs = new Array();
-		
+    
+	/*String.prototype.Trim = function(){
+		return this.replace(/(^\s*(|(\s($)/g,"");
+	}*/
 	//date formatter
-	/*$.extend($.fn.datebox.defaults.formatter = function(date) {
+	$.extend($.fn.datebox.defaults.formatter = function(date) {
 	    	var y=date.getFullYear();
 	    	var m = date.getMonth() +1;
 	    	var d = date.getDate();
@@ -26,7 +29,16 @@ $(function(){
 	    		d = '0'+d;
 	    	}
 	    	return  y+'-'+m+'-'+d;
-	});*/
+	});
+	
+	$.extend($.fn.datebox.defaults.parser=function(s){
+		var t = Date.parse(s);
+		if(!isNaN(t)){
+			return new Date(t);
+		}else{
+			return new Date();
+		}
+	});
 	
 	$.extend($.fn.validatebox.defaults.rules,{
 		 
@@ -40,6 +52,15 @@ $(function(){
 				return (d.getFullYear() == r[1] && (d.getMonth() + 1) == r[3] && d.getDate() == r[4]);
 			},
 			message: '时间格式不正确，请重新输入。'
+		},
+		
+		compareDate: {
+			validator:  function(value, param){
+				var date = $(param[0]).datebox('getValue');
+				console.log("endDate: " + date);
+				return value >=date;
+			},
+			message: '结束日期须大于起始日期.'
 		}
 		
 		
@@ -51,6 +72,38 @@ $(function(){
 		$('#projDigest_fm').form("load",row);
 		
 		$('#dg').dialog('open').dialog("setTitle","编辑项目摘要信息");
+		
+		$('#lob').combobox({
+			url: 'lob/get_lob',
+			valueField: 'id',
+			textField: 'lob',
+			onLoadSuccess:function(){
+				
+				var lobData = $(this).combobox("getData");
+				console.log("edit lob load success");
+				console.log(lobData);
+			
+				var lob = $.trim(row.lob);
+				
+				if(lobData.length <=0 ){
+					$(this).combox('setText',"");
+					return;
+				}
+				if(null == lob || ""==lob){
+					$(this).combobox('setText', industryData[0].industry);
+					$(this).combobox('setValue',industryData[0].id);
+					return;
+				}
+				for(var i=0; i<lobData.length; i++){
+					if($.trim(lobData[i].lob) == lob ){
+						$(this).combobox('setText',lobData[i].lob);
+						$(this).combobox('setValue',lobData[i].id);
+					} 
+				}
+				
+			}
+			
+		})
 		
 		$('#industryCategory').combobox({
 			url: 'industry/get_industryCategory',
@@ -179,54 +232,18 @@ $(function(){
 	
 	 
 	$('#projBeginDate').datebox({
-		formatter: function(date){
-		var y=date.getFullYear();
-    	var m = date.getMonth() +1;
-    	var d = date.getDate();
-    	
-    	if( m < 10 ){
-    		m = '0'+m;
-       	}
-    	if(d < 10 ){
-    		d = '0'+d;
-    	}
-    	return  y+'-'+m+'-'+d;
 		
-		},
-		parser:function(s){
-			var t = Date.parse(s);
-			if(!isNaN(t)){
-				return new Date(t);
-			}else{
-				return new Date();
-			}
-		}
 	});
 	
+	
+	
 	$('#projEndDate').datebox({
-		formatter: function(date){
-		var y=date.getFullYear();
-    	var m = date.getMonth() +1;
-    	var d = date.getDate();
-    	
-    	if( m < 10 ){
-    		m = '0'+m;
-       	}
-    	if(d < 10 ){
-    		d = '0'+d;
-    	}
-    	return  y+'-'+m+'-'+d;
 		
-		},
-		parser:function(s){
-			var t = Date.parse(s);
-			if(!isNaN(t)){
-				return new Date(t);
-			}else{
-				return new Date();
-			}
-		}
+		required: true,
+		 
+		validType:['date','compareDate[$("#projBeginDate")]'] 
 	});
+	
 	
 	
 	$('#projDigest_list').datagrid({
@@ -392,7 +409,7 @@ $(function(){
 	});
 	
 	$('#projDigest_list_tool_search_lob').combobox({
-		url:'projDigest/get_distinctLob',
+		url:'lob/get_selectLob',
 		valueField:'id',
 		textField: 'lob',
 		onSelect: function(rec){
@@ -456,7 +473,8 @@ $(function(){
 			if(value == '请输入查询关键字'){
 				value='';
 			}
-		
+		    value = value.trim();
+		    
 		    //结束datagrid的编辑
 	        endEdit();
 	        var rows = $('#projDigest_list').datagrid('getRows');
@@ -543,6 +561,29 @@ $(function(){
 		$('#projDigest_fm').form('clear');
 		url = "projDigest/add";
 		
+		$('#lob').combobox({
+			url:'lob/get_lob',
+			valueField: 'id',
+			textField: 'lob',
+			onLoadSuccess:function(){
+				
+				var val = $(this).combobox("getData");
+				
+				if(val.length == 0 ){
+					$(this).combobox('setValue','');
+					return;
+				}
+				
+				for(var item in val[0]){
+					 //console.log(item);
+					 //console.log(val[0][item]);
+					 if(item="id"){
+						 $(this).combobox('select',val[0][item]);
+					 }
+				}
+				
+			}
+		});
 		
 		$('#industryCategory').combobox({
 			url:'industry/get_industryCategory',
@@ -629,10 +670,26 @@ $(function(){
 		
 	});
 	
+	$('#btnClearIndustry').click(function(){
+		
+		$('#industryCategory').combobox("setValue","");
+		
+	})
 	
+	$('#btnClearField').click(function(){
+		
+		$('#fieldCategory').combobox("setValue","");
+		
+	})
+	
+	$('#btnClearApp').click(function(){
+		
+		$('#applicationCategory').combobox("setValue","");
+		
+	})
 	
 	$('#btnAddIndustry').click(function(){
-	      var industry = $('#industryCategory').combobox('getText');
+		  var industry = $('#industryCategory').combobox('getText');
 	      $.ajax({
 	    	  url: 'industry/add',
 			  type: 'POST',
@@ -665,6 +722,9 @@ $(function(){
 		
 		
 	});
+	
+	
+	 
 	
 	$('#btnAddField').click(function(){
 	      var field = $('#fieldCategory').combobox('getText');

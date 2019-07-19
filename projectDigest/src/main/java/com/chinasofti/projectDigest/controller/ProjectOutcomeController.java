@@ -28,9 +28,7 @@ public class ProjectOutcomeController {
 		
 		HttpServletRequest httpReq = (HttpServletRequest)request;
 		
-		
 		TempUtil.getReqInfo(httpReq); 
-		
 		return "mainbroad";
 	}
 	

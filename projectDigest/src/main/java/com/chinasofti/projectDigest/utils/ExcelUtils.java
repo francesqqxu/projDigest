@@ -46,7 +46,8 @@ public class ExcelUtils {
 	
     private static final  Logger logger = LoggerFactory.getLogger(ExcelUtils.class);  
     private static Workbook wb = null;
-   
+    private static final String PROJ_DIGEST_SHEET_NAME = "项目摘要";
+    
     public static <T> T transToObject(List<String> titles,List<Object> values,Class<T> clz) throws Exception{
         T t = clz.newInstance();
         int size = titles.size();
@@ -95,6 +96,31 @@ public class ExcelUtils {
         return null;
     }
     
+    /**
+     * check sheet name
+     */
+    private static  Sheet  getSheetName(String fileName,Workbook wb) throws Exception {
+    	
+    	Sheet sheet = null;
+    	String sheetName = "";
+    	Boolean isProjDigestSheet = false;
+    	
+    	for(int i=0; i<wb.getNumberOfSheets(); i++) {
+        	sheet = wb.getSheetAt(i);
+        	sheetName = wb.getSheetAt(i).getSheetName();
+        	 
+        	if(sheetName.equals(PROJ_DIGEST_SHEET_NAME)) {
+        		 isProjDigestSheet = true;
+        		 break;
+        	}
+        			
+        }
+        if(!isProjDigestSheet) {
+        	throw new Exception( fileName +  "项目摘要sheet不存在！");
+        }
+        return sheet;
+    }
+    
     /** 
      * 读取Excel表格表头的内容 
      *  
@@ -102,30 +128,38 @@ public class ExcelUtils {
      * @return String 表头内容的数组 
      * @author 
      */  
-    public static String[] readExcelTitle(String fileName,InputStream in) throws Exception{  
+    public static List<String> readExcelTitle(String fileName,InputStream in) throws Exception{  
     	
     	// 获得工作簿对象
         wb = getWorkBook(fileName, in);
     	Sheet sheet = null;
     	Row row = null;
+    	String cellValue = null;
     	
         if(wb==null){  
             throw new Exception("Workbook对象为空！");  
         }  
-        sheet = wb.getSheetAt(0);  
+        
+        sheet = getSheetName(fileName,wb);
+        
+        //sheet = wb.getSheetAt(0);  
         int rowNum = sheet.getLastRowNum();   
-        logger.info("rownum : {}" , rowNum);
-        String[] titles = new String[rowNum - 1];  
+        //logger.info("rownum : {}" , rowNum);
+        List<String> titles = new ArrayList<String>();  
         int j = 0;
         for (int i = 1; i < rowNum; i++) { 
         	 row = sheet.getRow(i);
         	 if(null != row) {
-	        	logger.info("row.getCell({}) = {}", i, row.getCell(0));
-	             titles[j] =(String)getCellFormatValue(row.getCell(0));  
-	            //logger.info("title[{}] = {}", i, titles[j]);
-	             j++;
+	        	//logger.info("row.getCell({}) = {}", i, row.getCell(0));
+	        	if(null != row.getCell(0)) {
+	        		 cellValue = (String)getCellFormatValue(row.getCell(0)); 
+	        		 titles.add(cellValue);
+		            //logger.info("title[{}] = {}", i, titles[j]);
+		             j++;
+	        	}
         	 }
-        }  
+        }
+        //logger.info("filename({}) titles number ={}", fileName, titles.size());
         return titles;  
     }  
     
@@ -147,8 +181,10 @@ public class ExcelUtils {
         if(wb==null){  
             throw new Exception("Workbook对象为空！");  
         }  
-                        
-        sheet = wb.getSheetAt(0);  
+        
+        sheet = getSheetName(fileName,wb);
+        
+        //sheet = wb.getSheetAt(0);  
         // 得到总行数  
         int rowNum = sheet.getLastRowNum();  
         row = sheet.getRow(0);  
@@ -160,6 +196,7 @@ public class ExcelUtils {
             row = sheet.getRow(i); 
             if(null != row) {
            //内容为第二列，第一列为标题
+            	//logger.info("row.getCell({}) = {}", i, row.getCell(1));
 	            obj = getCellFormatValue(row.getCell(1));  
 	            cellValues.add(obj);  
 	             
@@ -289,7 +326,7 @@ public class ExcelUtils {
             
             // 对读取Excel表格标题测试  
             in = new FileInputStream(fileName);
-	        List<String> titles = java.util.Arrays.asList(ExcelUtils.readExcelTitle(fileName, in));  
+	        List<String> titles = ExcelUtils.readExcelTitle(fileName, in);  
 	        System.out.println("获得Excel表格的标题:");  
 	         for (String s : titles) {  
 	              System.out.print(s + " ");  

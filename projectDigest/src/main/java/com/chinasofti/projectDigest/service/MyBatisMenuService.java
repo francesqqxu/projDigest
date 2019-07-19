@@ -6,5 +6,5 @@ import com.chinasofti.projectDigest.pojo.TMenu;
 
 public interface MyBatisMenuService {
 
-	   public List<TMenu> getMenuByPid(int pid);
+	   public List<TMenu> getMenuByPid(int pid, Boolean isAdmin);
 }

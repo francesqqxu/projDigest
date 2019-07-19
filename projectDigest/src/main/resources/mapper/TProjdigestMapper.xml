@@ -806,7 +806,7 @@
     select distinct
     p.id
   , proj_outcome_id
-  , lob
+  , l.lob
   , proj_name
   , proj_num
   , cust_name
@@ -830,6 +830,8 @@
   , user_id
   , is_import
   from t_projdigest p 
+  left join t_lob l
+  on p.lob = l.id
   left join t_industry i 
   on p.industry_category = i.id
   left join t_field f
@@ -847,7 +849,7 @@
   	and p.proj_num like concat ('%', #{projNum}, '%')
   </if>
   <if test="lob  != null and lob != ''">
-  	and p.lob like concat ('%', #{lob}, '%')
+  	and l.lob like concat ('%', #{lob}, '%')
   </if>
   <if test="userId !=null and userId !=''">
      and p.user_id like concat('%', #{userId},'%') 

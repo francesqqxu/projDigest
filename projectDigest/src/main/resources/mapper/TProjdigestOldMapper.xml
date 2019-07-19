@@ -24,6 +24,17 @@
     <result column="proj_backbone1" jdbcType="VARCHAR" property="projBackbone1" />
     <result column="proj_backbone2" jdbcType="VARCHAR" property="projBackbone2" />
     <result column="proj_backbone3" jdbcType="VARCHAR" property="projBackbone3" />
+    <result column="proj_backbone4" jdbcType="VARCHAR" property="projBackbone4" />
+    <result column="proj_backbone5" jdbcType="VARCHAR" property="projBackbone5" />
+    <result column="proj_backbone6" jdbcType="VARCHAR" property="projBackbone6" />
+    <result column="proj_backbone7" jdbcType="VARCHAR" property="projBackbone7" />
+    <result column="proj_backbone8" jdbcType="VARCHAR" property="projBackbone8" />
+    <result column="proj_backbone9" jdbcType="VARCHAR" property="projBackbone9" />
+    <result column="proj_backbone10" jdbcType="VARCHAR" property="projBackbone10" />
+    <result column="proj_backbone11" jdbcType="VARCHAR" property="projBackbone11" />
+    <result column="proj_backbone12" jdbcType="VARCHAR" property="projBackbone12" />
+    <result column="proj_backbone13" jdbcType="VARCHAR" property="projBackbone13" />
+    <result column="proj_backbone14" jdbcType="VARCHAR" property="projBackbone14" />
     <result column="proj_begin_date" jdbcType="VARCHAR" property="projBeginDate" />
     <result column="proj_end_date" jdbcType="VARCHAR" property="projEndDate" />
     <result column="input_date" jdbcType="VARCHAR" property="inputDate" />
@@ -43,7 +54,6 @@
     <result column="remaining_prob" jdbcType="VARCHAR" property="remainingProb" />
     <result column="market_competi" jdbcType="VARCHAR" property="marketCompeti" />
     <result column="constraint_depend" jdbcType="VARCHAR" property="constraintDepend" />
-    <result column="proj_back_bone3" jdbcType="VARCHAR" property="projBackBone3" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -119,10 +129,12 @@
     id, proj_outcome_id, lob, proj_name, proj_num, cust_name, relate_proj_name1, relate_proj_name2, 
     relate_proj_name3, subcontract_state, proj_manager_name, proj_manage_id, proj_manage_email, 
     proj_manage_tel, proj_manager_director_name, proj_backbone1, proj_backbone2, proj_backbone3, 
+    proj_backbone4, proj_backbone5, proj_backbone6, proj_backbone7, proj_backbone8, proj_backbone9, 
+    proj_backbone10, proj_backbone11, proj_backbone12, proj_backbone13, proj_backbone14, 
     proj_begin_date, proj_end_date, input_date, proj_state, business_tech_key1, business_tech_key2, 
     business_tech_key3, business_brief, business_func, performance_index, system_soft, 
     system_hard, system_architec, relavent_standard, key_tech_skills, usetools, remaining_prob, 
-    market_competi, constraint_depend, proj_back_bone3
+    market_competi, constraint_depend
   </sql>
   <select id="selectByExample" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOldExample" resultMap="BaseResultMap">
     <!--
@@ -184,26 +196,34 @@
       subcontract_state, proj_manager_name, proj_manage_id, 
       proj_manage_email, proj_manage_tel, proj_manager_director_name, 
       proj_backbone1, proj_backbone2, proj_backbone3, 
-      proj_begin_date, proj_end_date, input_date, 
-      proj_state, business_tech_key1, business_tech_key2, 
-      business_tech_key3, business_brief, business_func, 
-      performance_index, system_soft, system_hard, 
-      system_architec, relavent_standard, key_tech_skills, 
-      usetools, remaining_prob, market_competi, 
-      constraint_depend, proj_back_bone3)
+      proj_backbone4, proj_backbone5, proj_backbone6, 
+      proj_backbone7, proj_backbone8, proj_backbone9, 
+      proj_backbone10, proj_backbone11, proj_backbone12, 
+      proj_backbone13, proj_backbone14, proj_begin_date, 
+      proj_end_date, input_date, proj_state, 
+      business_tech_key1, business_tech_key2, business_tech_key3, 
+      business_brief, business_func, performance_index, 
+      system_soft, system_hard, system_architec, 
+      relavent_standard, key_tech_skills, usetools, 
+      remaining_prob, market_competi, constraint_depend
+      )
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
       #{subcontractState,jdbcType=VARCHAR}, #{projManagerName,jdbcType=VARCHAR}, #{projManageId,jdbcType=VARCHAR}, 
       #{projManageEmail,jdbcType=VARCHAR}, #{projManageTel,jdbcType=VARCHAR}, #{projManagerDirectorName,jdbcType=VARCHAR}, 
       #{projBackbone1,jdbcType=VARCHAR}, #{projBackbone2,jdbcType=VARCHAR}, #{projBackbone3,jdbcType=VARCHAR}, 
-      #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
-      #{projState,jdbcType=VARCHAR}, #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, 
-      #{businessTechKey3,jdbcType=VARCHAR}, #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, 
-      #{performanceIndex,jdbcType=VARCHAR}, #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, 
-      #{systemArchitec,jdbcType=VARCHAR}, #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, 
-      #{usetools,jdbcType=VARCHAR}, #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, 
-      #{constraintDepend,jdbcType=VARCHAR}, #{projBackBone3,jdbcType=VARCHAR})
+      #{projBackbone4,jdbcType=VARCHAR}, #{projBackbone5,jdbcType=VARCHAR}, #{projBackbone6,jdbcType=VARCHAR}, 
+      #{projBackbone7,jdbcType=VARCHAR}, #{projBackbone8,jdbcType=VARCHAR}, #{projBackbone9,jdbcType=VARCHAR}, 
+      #{projBackbone10,jdbcType=VARCHAR}, #{projBackbone11,jdbcType=VARCHAR}, #{projBackbone12,jdbcType=VARCHAR}, 
+      #{projBackbone13,jdbcType=VARCHAR}, #{projBackbone14,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, 
+      #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{projState,jdbcType=VARCHAR}, 
+      #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, #{businessTechKey3,jdbcType=VARCHAR}, 
+      #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
+      #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
+      #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOld">
     <!--
@@ -267,6 +287,39 @@
       <if test="projBackbone3 != null">
         proj_backbone3,
       </if>
+      <if test="projBackbone4 != null">
+        proj_backbone4,
+      </if>
+      <if test="projBackbone5 != null">
+        proj_backbone5,
+      </if>
+      <if test="projBackbone6 != null">
+        proj_backbone6,
+      </if>
+      <if test="projBackbone7 != null">
+        proj_backbone7,
+      </if>
+      <if test="projBackbone8 != null">
+        proj_backbone8,
+      </if>
+      <if test="projBackbone9 != null">
+        proj_backbone9,
+      </if>
+      <if test="projBackbone10 != null">
+        proj_backbone10,
+      </if>
+      <if test="projBackbone11 != null">
+        proj_backbone11,
+      </if>
+      <if test="projBackbone12 != null">
+        proj_backbone12,
+      </if>
+      <if test="projBackbone13 != null">
+        proj_backbone13,
+      </if>
+      <if test="projBackbone14 != null">
+        proj_backbone14,
+      </if>
       <if test="projBeginDate != null">
         proj_begin_date,
       </if>
@@ -324,9 +377,6 @@
       <if test="constraintDepend != null">
         constraint_depend,
       </if>
-      <if test="projBackBone3 != null">
-        proj_back_bone3,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       #{id,jdbcType=INTEGER},
@@ -380,6 +430,39 @@
       </if>
       <if test="projBackbone3 != null">
         #{projBackbone3,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone4 != null">
+        #{projBackbone4,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone5 != null">
+        #{projBackbone5,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone6 != null">
+        #{projBackbone6,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone7 != null">
+        #{projBackbone7,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone8 != null">
+        #{projBackbone8,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone9 != null">
+        #{projBackbone9,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone10 != null">
+        #{projBackbone10,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone11 != null">
+        #{projBackbone11,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone12 != null">
+        #{projBackbone12,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone13 != null">
+        #{projBackbone13,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone14 != null">
+        #{projBackbone14,jdbcType=VARCHAR},
       </if>
       <if test="projBeginDate != null">
         #{projBeginDate,jdbcType=VARCHAR},
@@ -437,9 +520,6 @@
       </if>
       <if test="constraintDepend != null">
         #{constraintDepend,jdbcType=VARCHAR},
-      </if>
-      <if test="projBackBone3 != null">
-        #{projBackBone3,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -514,6 +594,39 @@
       <if test="record.projBackbone3 != null">
         proj_backbone3 = #{record.projBackbone3,jdbcType=VARCHAR},
       </if>
+      <if test="record.projBackbone4 != null">
+        proj_backbone4 = #{record.projBackbone4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone5 != null">
+        proj_backbone5 = #{record.projBackbone5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone6 != null">
+        proj_backbone6 = #{record.projBackbone6,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone7 != null">
+        proj_backbone7 = #{record.projBackbone7,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone8 != null">
+        proj_backbone8 = #{record.projBackbone8,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone9 != null">
+        proj_backbone9 = #{record.projBackbone9,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone10 != null">
+        proj_backbone10 = #{record.projBackbone10,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone11 != null">
+        proj_backbone11 = #{record.projBackbone11,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone12 != null">
+        proj_backbone12 = #{record.projBackbone12,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone13 != null">
+        proj_backbone13 = #{record.projBackbone13,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projBackbone14 != null">
+        proj_backbone14 = #{record.projBackbone14,jdbcType=VARCHAR},
+      </if>
       <if test="record.projBeginDate != null">
         proj_begin_date = #{record.projBeginDate,jdbcType=VARCHAR},
       </if>
@@ -571,9 +684,6 @@
       <if test="record.constraintDepend != null">
         constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR},
       </if>
-      <if test="record.projBackBone3 != null">
-        proj_back_bone3 = #{record.projBackBone3,jdbcType=VARCHAR},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -603,6 +713,17 @@
       proj_backbone1 = #{record.projBackbone1,jdbcType=VARCHAR},
       proj_backbone2 = #{record.projBackbone2,jdbcType=VARCHAR},
       proj_backbone3 = #{record.projBackbone3,jdbcType=VARCHAR},
+      proj_backbone4 = #{record.projBackbone4,jdbcType=VARCHAR},
+      proj_backbone5 = #{record.projBackbone5,jdbcType=VARCHAR},
+      proj_backbone6 = #{record.projBackbone6,jdbcType=VARCHAR},
+      proj_backbone7 = #{record.projBackbone7,jdbcType=VARCHAR},
+      proj_backbone8 = #{record.projBackbone8,jdbcType=VARCHAR},
+      proj_backbone9 = #{record.projBackbone9,jdbcType=VARCHAR},
+      proj_backbone10 = #{record.projBackbone10,jdbcType=VARCHAR},
+      proj_backbone11 = #{record.projBackbone11,jdbcType=VARCHAR},
+      proj_backbone12 = #{record.projBackbone12,jdbcType=VARCHAR},
+      proj_backbone13 = #{record.projBackbone13,jdbcType=VARCHAR},
+      proj_backbone14 = #{record.projBackbone14,jdbcType=VARCHAR},
       proj_begin_date = #{record.projBeginDate,jdbcType=VARCHAR},
       proj_end_date = #{record.projEndDate,jdbcType=VARCHAR},
       input_date = #{record.inputDate,jdbcType=VARCHAR},
@@ -621,8 +742,7 @@
       usetools = #{record.usetools,jdbcType=VARCHAR},
       remaining_prob = #{record.remainingProb,jdbcType=VARCHAR},
       market_competi = #{record.marketCompeti,jdbcType=VARCHAR},
-      constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR},
-      proj_back_bone3 = #{record.projBackBone3,jdbcType=VARCHAR}
+      constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -685,6 +805,39 @@
       <if test="projBackbone3 != null">
         proj_backbone3 = #{projBackbone3,jdbcType=VARCHAR},
       </if>
+      <if test="projBackbone4 != null">
+        proj_backbone4 = #{projBackbone4,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone5 != null">
+        proj_backbone5 = #{projBackbone5,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone6 != null">
+        proj_backbone6 = #{projBackbone6,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone7 != null">
+        proj_backbone7 = #{projBackbone7,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone8 != null">
+        proj_backbone8 = #{projBackbone8,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone9 != null">
+        proj_backbone9 = #{projBackbone9,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone10 != null">
+        proj_backbone10 = #{projBackbone10,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone11 != null">
+        proj_backbone11 = #{projBackbone11,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone12 != null">
+        proj_backbone12 = #{projBackbone12,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone13 != null">
+        proj_backbone13 = #{projBackbone13,jdbcType=VARCHAR},
+      </if>
+      <if test="projBackbone14 != null">
+        proj_backbone14 = #{projBackbone14,jdbcType=VARCHAR},
+      </if>
       <if test="projBeginDate != null">
         proj_begin_date = #{projBeginDate,jdbcType=VARCHAR},
       </if>
@@ -742,9 +895,6 @@
       <if test="constraintDepend != null">
         constraint_depend = #{constraintDepend,jdbcType=VARCHAR},
       </if>
-      <if test="projBackBone3 != null">
-        proj_back_bone3 = #{projBackBone3,jdbcType=VARCHAR},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -771,6 +921,17 @@
       proj_backbone1 = #{projBackbone1,jdbcType=VARCHAR},
       proj_backbone2 = #{projBackbone2,jdbcType=VARCHAR},
       proj_backbone3 = #{projBackbone3,jdbcType=VARCHAR},
+      proj_backbone4 = #{projBackbone4,jdbcType=VARCHAR},
+      proj_backbone5 = #{projBackbone5,jdbcType=VARCHAR},
+      proj_backbone6 = #{projBackbone6,jdbcType=VARCHAR},
+      proj_backbone7 = #{projBackbone7,jdbcType=VARCHAR},
+      proj_backbone8 = #{projBackbone8,jdbcType=VARCHAR},
+      proj_backbone9 = #{projBackbone9,jdbcType=VARCHAR},
+      proj_backbone10 = #{projBackbone10,jdbcType=VARCHAR},
+      proj_backbone11 = #{projBackbone11,jdbcType=VARCHAR},
+      proj_backbone12 = #{projBackbone12,jdbcType=VARCHAR},
+      proj_backbone13 = #{projBackbone13,jdbcType=VARCHAR},
+      proj_backbone14 = #{projBackbone14,jdbcType=VARCHAR},
       proj_begin_date = #{projBeginDate,jdbcType=VARCHAR},
       proj_end_date = #{projEndDate,jdbcType=VARCHAR},
       input_date = #{inputDate,jdbcType=VARCHAR},
@@ -789,8 +950,7 @@
       usetools = #{usetools,jdbcType=VARCHAR},
       remaining_prob = #{remainingProb,jdbcType=VARCHAR},
       market_competi = #{marketCompeti,jdbcType=VARCHAR},
-      constraint_depend = #{constraintDepend,jdbcType=VARCHAR},
-      proj_back_bone3 = #{projBackBone3,jdbcType=VARCHAR}
+      constraint_depend = #{constraintDepend,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
@@ -802,26 +962,34 @@
       subcontract_state, proj_manager_name, proj_manage_id, 
       proj_manage_email, proj_manage_tel, proj_manager_director_name, 
       proj_backbone1, proj_backbone2, proj_backbone3, 
-      proj_begin_date, proj_end_date, input_date, 
-      proj_state, business_tech_key1, business_tech_key2, 
-      business_tech_key3, business_brief, business_func, 
-      performance_index, system_soft, system_hard, 
-      system_architec, relavent_standard, key_tech_skills, 
-      usetools, remaining_prob, market_competi, 
-      constraint_depend, proj_back_bone3)
+      proj_backbone4, proj_backbone5, proj_backbone6, 
+      proj_backbone7, proj_backbone8, proj_backbone9, 
+      proj_backbone10, proj_backbone11, proj_backbone12, 
+      proj_backbone13, proj_backbone14, proj_begin_date, 
+      proj_end_date, input_date, proj_state, 
+      business_tech_key1, business_tech_key2, business_tech_key3, 
+      business_brief, business_func, performance_index, 
+      system_soft, system_hard, system_architec, 
+      relavent_standard, key_tech_skills, usetools, 
+      remaining_prob, market_competi, constraint_depend
+      )
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
       #{subcontractState,jdbcType=VARCHAR}, #{projManagerName,jdbcType=VARCHAR}, #{projManageId,jdbcType=VARCHAR}, 
       #{projManageEmail,jdbcType=VARCHAR}, #{projManageTel,jdbcType=VARCHAR}, #{projManagerDirectorName,jdbcType=VARCHAR}, 
       #{projBackbone1,jdbcType=VARCHAR}, #{projBackbone2,jdbcType=VARCHAR}, #{projBackbone3,jdbcType=VARCHAR}, 
-      #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
-      #{projState,jdbcType=VARCHAR}, #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, 
-      #{businessTechKey3,jdbcType=VARCHAR}, #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, 
-      #{performanceIndex,jdbcType=VARCHAR}, #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, 
-      #{systemArchitec,jdbcType=VARCHAR}, #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, 
-      #{usetools,jdbcType=VARCHAR}, #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, 
-      #{constraintDepend,jdbcType=VARCHAR}, #{projBackBone3,jdbcType=VARCHAR})
+      #{projBackbone4,jdbcType=VARCHAR}, #{projBackbone5,jdbcType=VARCHAR}, #{projBackbone6,jdbcType=VARCHAR}, 
+      #{projBackbone7,jdbcType=VARCHAR}, #{projBackbone8,jdbcType=VARCHAR}, #{projBackbone9,jdbcType=VARCHAR}, 
+      #{projBackbone10,jdbcType=VARCHAR}, #{projBackbone11,jdbcType=VARCHAR}, #{projBackbone12,jdbcType=VARCHAR}, 
+      #{projBackbone13,jdbcType=VARCHAR}, #{projBackbone14,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, 
+      #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{projState,jdbcType=VARCHAR}, 
+      #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, #{businessTechKey3,jdbcType=VARCHAR}, 
+      #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
+      #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
+      #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
+      )
   </insert>
   
   <insert id="insert3" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOld">
@@ -833,27 +1001,34 @@
       subcontract_state, proj_manager_name, proj_manage_id, 
       proj_manage_email, proj_manage_tel, proj_manager_director_name, 
       proj_backbone1, proj_backbone2, proj_backbone3, 
-      proj_begin_date, proj_end_date, input_date, 
-      proj_state, business_tech_key1, business_tech_key2, 
-      business_tech_key3, business_brief, business_func, 
-      performance_index, system_soft, system_hard, 
-      system_architec, relavent_standard, key_tech_skills, 
-      usetools, remaining_prob, market_competi, 
-      constraint_depend, proj_back_bone3)
+      proj_backbone4, proj_backbone5, proj_backbone6, 
+      proj_backbone7, proj_backbone8, proj_backbone9, 
+      proj_backbone10, proj_backbone11, proj_backbone12, 
+      proj_backbone13, proj_backbone14, proj_begin_date, 
+      proj_end_date, input_date, proj_state, 
+      business_tech_key1, business_tech_key2, business_tech_key3, 
+      business_brief, business_func, performance_index, 
+      system_soft, system_hard, system_architec, 
+      relavent_standard, key_tech_skills, usetools, 
+      remaining_prob, market_competi, constraint_depend
+      )
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
       #{subcontractState,jdbcType=VARCHAR}, #{projManagerName,jdbcType=VARCHAR}, #{projManageId,jdbcType=VARCHAR}, 
       #{projManageEmail,jdbcType=VARCHAR}, #{projManageTel,jdbcType=VARCHAR}, #{projManagerDirectorName,jdbcType=VARCHAR}, 
       #{projBackbone1,jdbcType=VARCHAR}, #{projBackbone2,jdbcType=VARCHAR}, #{projBackbone3,jdbcType=VARCHAR}, 
-      #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, 
-      #{projState,jdbcType=VARCHAR}, #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, 
-      #{businessTechKey3,jdbcType=VARCHAR}, #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, 
-      #{performanceIndex,jdbcType=VARCHAR}, #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, 
-      #{systemArchitec,jdbcType=VARCHAR}, #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, 
-      #{usetools,jdbcType=VARCHAR}, #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, 
-      #{constraintDepend,jdbcType=VARCHAR}, #{projBackBone3,jdbcType=VARCHAR})
-      
+      #{projBackbone4,jdbcType=VARCHAR}, #{projBackbone5,jdbcType=VARCHAR}, #{projBackbone6,jdbcType=VARCHAR}, 
+      #{projBackbone7,jdbcType=VARCHAR}, #{projBackbone8,jdbcType=VARCHAR}, #{projBackbone9,jdbcType=VARCHAR}, 
+      #{projBackbone10,jdbcType=VARCHAR}, #{projBackbone11,jdbcType=VARCHAR}, #{projBackbone12,jdbcType=VARCHAR}, 
+      #{projBackbone13,jdbcType=VARCHAR}, #{projBackbone14,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, 
+      #{projEndDate,jdbcType=VARCHAR}, #{inputDate,jdbcType=VARCHAR}, #{projState,jdbcType=VARCHAR}, 
+      #{businessTechKey1,jdbcType=VARCHAR}, #{businessTechKey2,jdbcType=VARCHAR}, #{businessTechKey3,jdbcType=VARCHAR}, 
+      #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
+      #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
+      #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
+      )
       <selectKey keyColumn="id" keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       	SELECT LAST_INSERT_ID()
       </selectKey>

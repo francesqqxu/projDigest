@@ -17,7 +17,8 @@ import com.icss.resourceone.sso.client.SSOClient;
 public class WebConfig {
 	
 	
-	  @Bean public FilterRegistrationBean<SSOClient> SSOClientFilter() {
+	  @Bean 
+	  public FilterRegistrationBean<SSOClient> SSOClientFilter() {
 	  
 	  FilterRegistrationBean<SSOClient> registrationBean = new
 	  FilterRegistrationBean<SSOClient>();
@@ -32,7 +33,8 @@ public class WebConfig {
 	  registrationBean.addInitParameter("URIEncoding", "utf-8");
 	  registrationBean.addInitParameter("_server_site_url",
 	  "http://ics.chinasoftosg.com/servlet/SSOServer");
-	  registrationBean.setName("SSOClientFilter"); registrationBean.setOrder(1);
+	  registrationBean.setName("SSOClientFilter");
+	  registrationBean.setOrder(4);
 	  
 	  return registrationBean;
 	  

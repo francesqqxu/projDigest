@@ -35,10 +35,11 @@
          <td>
 	      <a id="projDigest_list_tool_search" href="#">查询</a>
 	     </td>
+	     <!-- 
 	     <td>
 	     <a id="projDigest_list_tool_clear" href="#">清除查询条件</a>
 	     </td>
-	      
+	      --> 
 	     </tr>
 	   </table>
 	    
@@ -56,119 +57,125 @@
 	     <tbody>     
               <tr>
               <td>项目成果ID:</td> 
-              <td><input  class="easyui-textbox"  name="projOutcomeId"   id="projOutcomeId" data-options="required:true" style="width:300px"/></td>
+              <td colspan="3"><input  class="easyui-textbox"  name="projOutcomeId"   id="projOutcomeId" data-options="required:true" style="width:280px"/></td>
               <td> </td>
-              <td> </td>
+              <td colspan="3"></td>
               <td>所属LOB:</td> 
-              <td><input  class="easyui-textbox" name="lob" id="lob"  data-options="required:true"  style="width:300px" /></td>
+              <td colspan="3"><input  class="easyui-textbox" name="lob" id="lob"  data-options="required:true"  style="width:280px" /></td>
               </tr> 
               
               <tr>
               <td>项目名称:</td> 
-              <td><input class="easyui-textbox"  name="projName"  id="projName" data-options="required:true"  style="width:300px"/></td>
+              <td colspan="3"><input class="easyui-textbox"  name="projName"  id="projName" data-options="required:true"  style="width:280px"/></td>
               <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>项目编号:</td> 
-              <td><input class="easyui-textbox"  name="projNum" id="projNum" data-options="required:true"  style="width:300px" /></td>
+              <td colspan="3"><input class="easyui-textbox"  name="projNum" id="projNum" data-options="required:true"  style="width:280px" /></td>
         	  </tr>
         	  
         	  <tr>
               <td>客户名称:</td> 
-              <td><input class="easyui-textbox"  name="custName"   id="custName" data-options="required:true"  style="width:300px"/></td>
+              <td colspan="3"><input class="easyui-textbox"  name="custName"   id="custName" data-options="required:true"  style="width:280px"/></td>
               <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>项目简介:</td> 
-              <td><input class="easyui-textbox" name="projBrief"   id="projBrief" data-options="required:true"  style="width:300px" /></td>
-        	  
+              <td colspan="3"><input class="easyui-textbox" name="projBrief"   id="projBrief" data-options="required:true,multiline:true"  style="width:280px;height:50px" /></td>
         	  </tr>
         	  
         	  <tr>
               <td>项目开始日期:</td> 
-              <td><input class="easyui-datebox"  name="projBeginDate"   id="projBeginDate" data-options="required:true,validType:'date'"  style="width:300px"/></td>
+              <td colspan="3"><input class="easyui-datebox"  name="projBeginDate"   id="projBeginDate" data-options="required:true,validType:'date'"  style="width:280px"/></td>
               <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>项目关闭日期:</td> 
-              <td><input class="easyui-datebox"  name="projEndDate"   id="projEndDate"  data-options="required:true,validType:'date'" style="width:300px" /></td>
-        	 
-        	  </tr>
+              <td colspan="3"><input class="easyui-datebox"  name="projEndDate"   id="projEndDate"   style="width:280px" /></td>
+         	  </tr>
         	  
         	  <tr>
               <td>归档SVN路径:</td> 
-              <td><input  class="easyui-textbox"  name="archivePath"  id="archivePath" data-options="required:true"  style="width:300px"/></td>
+              <td colspan="3"><input  class="easyui-textbox"  name="archivePath"  id="archivePath" data-options="required:true"  style="width:280px"/></td>
               <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>项目经理姓名:</td> 
-              <td><input  class="easyui-textbox"  name="projManagerName" id="projManagerName" data-options="required:true"  style="width:300px" /></td>
-        	  
+              <td colspan="3"><input  class="easyui-textbox"  name="projManagerName" id="projManagerName" data-options="required:true"  style="width:280px" /></td>
         	  </tr>
         	  
         	  <tr>
               <td>项目经理ID:</td> 
-              <td><input  class="easyui-textbox" name="projManageId"  id="projManageId" data-options="required:true"  style="width:300px"/></td>
+              <td colspan="3"><input  class="easyui-textbox" name="projManageId"  id="projManageId" data-options="required:true"  style="width:280px"/></td>
               <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>项目经理电话:</td> 
-              <td><input  class="easyui-textbox" name="projManageTel"  id="projManageTel" data-options="required:true"  style="width:300px" /></td>
-        	  
+              <td colspan="3"><input  class="easyui-textbox" name="projManageTel"  id="projManageTel" data-options="required:true"  style="width:280px" /></td>
         	  </tr>
         	  
         	  <tr>
               <td>项目经理邮箱:</td> 
-              <td><input  class="easyui-textbox" name="projManageEmail"  id="projManageEmail" data-options="required:true,validType:'email'"  style="width:300px"/></td>
+              <td colspan="3"><input  class="easyui-textbox" name="projManageEmail"  id="projManageEmail" data-options="required:true,validType:'email'"  style="width:280px"/></td>
               <td></td>
+              <td colspan="3"></td>
               <td></td>
-              <td></td>
-              <td></td> 
-              <td></td>
-        	  
+              <td colspan="3"></td> 
         	  </tr>
         	  
         	  <tr>
               <td>行业:</td> 
-              <td><input class="easyui-textbox"  name="industryCategory"  id="industryCategory" data-options="required:true"  style="width:200px"/></td>
+              <td colspan="3"><input class="easyui-textbox"  name="industryCategory"  id="industryCategory" data-options="required:true"  style="width:280px"/></td>
           	  <td>领域:</td>
-          	  <td><input class="easyui-textbox" name="fieldCategory"  id="fieldCategory" data-options="required:true"  style="width:200px"/></td>
+          	  <td colspan="3"><input class="easyui-textbox" name="fieldCategory"  id="fieldCategory" data-options="required:true"  style="width:180px"/></td>
           	  <td>应用:</td>
-          	  <td><input class="easyui-textbox"  name="applicationCategory"  id="applicationCategory" data-options="required:true"  style="width:200px"/></td>
+          	  <td colspan="3"><input class="easyui-textbox"  name="applicationCategory"  id="applicationCategory" data-options="required:true"  style="width:280px"/></td>
           	  </tr>
           	  
           	  <tr>
           	  <td>    </td>
-          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddIndustry"  data-options="required:true,iconCls:'icon-add'" style="width:100px">新加行业</a></td>
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnClearIndustry"  data-options="required:true,plain:true,iconCls:'icon-clear'" style="width:30px"></a>清空</td>
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddIndustry"  data-options="required:true,plain:true,iconCls:'icon-add'" style="width:30px"></a>添加</td>
+          	  <!-- 
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnDelIndustry"  data-options="required:true,iconCls:'icon-remove'" style="width:30px"></a></td>
+          	   -->
+          	  <td>  </td>
           	  <td>    </td>
-          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddField"  data-options="required:true,iconCls:'icon-add'" style="width:100px">新加领域</a></td>
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnClearField"  data-options="required:true,plain:true,iconCls:'icon-clear'" style="width:30px"></a>清空</td>
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddField"  data-options="required:true,plain:true,iconCls:'icon-add'" style="width:30px"></a>添加</td>
+          	  <!--  
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnDelField"  data-options="required:true,iconCls:'icon-remove'" style="width:30px"></a></td>
+          	  -->
+          	  <td></td>
           	  <td>    </td>
-          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddApp"  data-options="required:true,iconCls:'icon-add'" style="width:100px">新加应用</a></td>
-          	  
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnClearApp"  data-options="required:true,plain:true,iconCls:'icon-clear'" style="width:30px"></a>清空</td>
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnAddApp"  data-options="required:true,plain:true,iconCls:'icon-add'" style="width:30px"></a>添加</td>
+          	  <!-- 
+          	  <td><a href="#" class="easyui-linkbutton"  id="btnDelApp"  data-options="required:true,iconCls:'icon-remove'" style="width:30px"></a></td>
+          	   -->
+          	  <td></td>
           	  </tr>
+          	  
           	  <tr> 
               <td>编程语言:</td> 
-              <td><input class="easyui-textbox"  name="usedLanguage"  id="usedLanguage" data-options="required:true"  style="width:300px" /></td>
+              <td colspan="3"><input class="easyui-textbox"  name="usedLanguage"  id="usedLanguage" data-options="required:true,multiline:true"  style="width:280px;height:50px" /></td>
         	  <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>系统软件:</td> 
-              <td><input class="easyui-textbox"  name="systemSoft"   id="systemSoft"  data-options="required:true" style="width:300px"/></td>
+              <td colspan="3"><input class="easyui-textbox"  name="systemSoft"   id="systemSoft"  data-options="required:true,multiline:true" style="width:280px;height:50px"/></td>
               </tr>
               
               <tr>
               <td>系统硬件:</td> 
-              <td><input class="easyui-textbox"  name="systemHard"  id="systemHard" data-options="required:true"  style="width:300px" /></td>
+              <td colspan="3"><input class="easyui-textbox"  name="systemHard"  id="systemHard" data-options="required:true"  style="width:280px;height:50px" /></td>
         	  <td></td>
-              <td></td>
+              <td colspan="3"></td>
               <td>数据库:</td> 
-              <td><input class="easyui-textbox"  name="usedDatabase"  id="usedDatabase" data-options="required:true"  style="width:300px"/></td>
+              <td colspan="3"><input class="easyui-textbox"  name="usedDatabase"  id="usedDatabase" data-options="required:true,multiline:true"  style="width:280px;height:50px"/></td>
               </tr>
               
               <tr>
-              
               <td>测试框架:</td> 
-              <td><input class="easyui-textbox"  name="testFramework"  id="testFramework" data-options="required:true"  style="width:300px" /></td>
+              <td colspan="3"><input class="easyui-textbox"  name="testFramework"  id="testFramework" data-options="required:true,multiline:true"  style="width:280px;height:50px" /></td>
         	  <td></td>
-              <td></td>
-        	   
-              <td>其他关键技术:</td> 
-              <td><input class="easyui-textbox"  name="keyTechSkills" id="keyTechSkills" data-options="required:true"  style="width:300px"/></td>
-               
+              <td colspan="3"></td>
+        	  <td>其他关键技术:</td> 
+              <td  colspan="3"><input class="easyui-textbox"  name="keyTechSkills" id="keyTechSkills" data-options="required:true,multiline:true"  style="width:280px;height:50px"/></td>
         	  </tr>
          
 	    </tbody>

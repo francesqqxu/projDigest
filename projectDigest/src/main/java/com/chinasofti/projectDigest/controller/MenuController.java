@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.chinasofti.projectDigest.pojo.TMenu;
 import com.chinasofti.projectDigest.service.MyBatisMenuService;
+import com.chinasofti.projectDigest.utils.PropertyUtil;
 import com.chinasofti.projectDigest.utils.TempUtil;
+ 
  
 
 
@@ -29,6 +31,9 @@ public class MenuController {
 	@Autowired
 	private MyBatisMenuService menuService;
 	
+	@Autowired
+	private PropertyUtil propertyUtil;
+	
 	@RequestMapping("get_menu")
 	@ResponseBody
 	public Object getMenus(ServletRequest request, Integer id) {
@@ -40,13 +45,25 @@ public class MenuController {
 		if(null == id) {
 			id = 0;
 		}
+		
+		String userId = httpReq.getRemoteUser();
+		String adminUserId = propertyUtil.getAdminUserid();
+		Boolean isAdmin = false;
+		
+		if(id==0) {
+			isAdmin = true;
+		}
+		if(userId.equals(adminUserId)) {
+			isAdmin = true;
+		}
 		List<TMenu> menus = new ArrayList<TMenu>();
 		
-		menus = menuService.getMenuByPid(id);
+		menus = menuService.getMenuByPid(id, isAdmin);
 		
 		return menus;
 		
 	}
+	
 	
 
 }
