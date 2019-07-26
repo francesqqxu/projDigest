@@ -14,8 +14,10 @@ import org.apache.shiro.web.servlet.AbstractShiroFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 import com.chinasofti.projectDigest.shiro.MyRealm;
 
@@ -37,6 +39,19 @@ public class ShiroConfiguration {
 		MyRealm myRealm = new MyRealm();
 		myRealm.setCacheManager(cacheManager);
 		return myRealm;
+	}
+	
+	@Bean
+	public FilterRegistrationBean<DelegatingFilterProxy> filterRegistrationBean() {
+		
+		FilterRegistrationBean<DelegatingFilterProxy> filterRegistration = new FilterRegistrationBean<DelegatingFilterProxy>();
+		filterRegistration.setFilter(new DelegatingFilterProxy("shiroFilter"));
+		filterRegistration.addInitParameter("targetFilterLifecycle", "true");
+		filterRegistration.setEnabled(true);
+		filterRegistration.addUrlPatterns("/*");
+		filterRegistration.setOrder(1);
+		return filterRegistration;
+				
 	}
 	
 	@Bean(name = "lifecycleBeanPostProcessor")
@@ -71,7 +86,7 @@ public class ShiroConfiguration {
         /////////////////////// 下面这些规则配置最好配置到配置文件中 ///////////////////////
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         // authc：该过滤器下的页面必须验证后才能访问，它是Shiro内置的一个拦截器org.apache.shiro.web.filter.authc.FormAuthenticationFilter
-        filterChainDefinitionMap.put("/user", "authc");// 这里为了测试，只限制/user，实际开发中请修改为具体拦截的请求规则
+        filterChainDefinitionMap.put("projDigest/projDigestQuery", "authc");// 这里为了测试，只限制/user，实际开发中请修改为具体拦截的请求规则
         // anon：它对应的过滤器里面是空的,什么都没做
         LOGGER.info("##################从数据库读取权限规则，加载到shiroFilter中##################");
         filterChainDefinitionMap.put("/user/edit/**", "authc,perms[user:edit]");// 这里为了测试，固定写死的值，也可以从数据库或其他配置中读取

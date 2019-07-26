@@ -562,73 +562,73 @@ public class TMenuExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsIsNull() {
-			addCriterion("icon_cls is null");
+		public Criteria andPermIsNull() {
+			addCriterion("perm is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsIsNotNull() {
-			addCriterion("icon_cls is not null");
+		public Criteria andPermIsNotNull() {
+			addCriterion("perm is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsEqualTo(String value) {
-			addCriterion("icon_cls =", value, "iconCls");
+		public Criteria andPermEqualTo(String value) {
+			addCriterion("perm =", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsNotEqualTo(String value) {
-			addCriterion("icon_cls <>", value, "iconCls");
+		public Criteria andPermNotEqualTo(String value) {
+			addCriterion("perm <>", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsGreaterThan(String value) {
-			addCriterion("icon_cls >", value, "iconCls");
+		public Criteria andPermGreaterThan(String value) {
+			addCriterion("perm >", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsGreaterThanOrEqualTo(String value) {
-			addCriterion("icon_cls >=", value, "iconCls");
+		public Criteria andPermGreaterThanOrEqualTo(String value) {
+			addCriterion("perm >=", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsLessThan(String value) {
-			addCriterion("icon_cls <", value, "iconCls");
+		public Criteria andPermLessThan(String value) {
+			addCriterion("perm <", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsLessThanOrEqualTo(String value) {
-			addCriterion("icon_cls <=", value, "iconCls");
+		public Criteria andPermLessThanOrEqualTo(String value) {
+			addCriterion("perm <=", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsLike(String value) {
-			addCriterion("icon_cls like", value, "iconCls");
+		public Criteria andPermLike(String value) {
+			addCriterion("perm like", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsNotLike(String value) {
-			addCriterion("icon_cls not like", value, "iconCls");
+		public Criteria andPermNotLike(String value) {
+			addCriterion("perm not like", value, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsIn(List<String> values) {
-			addCriterion("icon_cls in", values, "iconCls");
+		public Criteria andPermIn(List<String> values) {
+			addCriterion("perm in", values, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsNotIn(List<String> values) {
-			addCriterion("icon_cls not in", values, "iconCls");
+		public Criteria andPermNotIn(List<String> values) {
+			addCriterion("perm not in", values, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsBetween(String value1, String value2) {
-			addCriterion("icon_cls between", value1, value2, "iconCls");
+		public Criteria andPermBetween(String value1, String value2) {
+			addCriterion("perm between", value1, value2, "perm");
 			return (Criteria) this;
 		}
 
-		public Criteria andIconClsNotBetween(String value1, String value2) {
-			addCriterion("icon_cls not between", value1, value2, "iconCls");
+		public Criteria andPermNotBetween(String value1, String value2) {
+			addCriterion("perm not between", value1, value2, "perm");
 			return (Criteria) this;
 		}
 	}

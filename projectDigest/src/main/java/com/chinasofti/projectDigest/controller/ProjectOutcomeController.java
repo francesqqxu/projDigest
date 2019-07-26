@@ -7,6 +7,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +32,10 @@ public class ProjectOutcomeController {
 		
 		
 		TempUtil.getReqInfo(httpReq); 
-		
+		String userName = httpReq.getRemoteUser();
+		SecurityUtils.getSubject().login(
+				new UsernamePasswordToken(userName, userName));
+						 
 		return "mainbroad";
 	}
 	

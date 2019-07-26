@@ -32,7 +32,7 @@ public class WebConfig {
 	  registrationBean.addInitParameter("URIEncoding", "utf-8");
 	  registrationBean.addInitParameter("_server_site_url",
 	  "http://ics.chinasoftosg.com/servlet/SSOServer");
-	  registrationBean.setName("SSOClientFilter"); registrationBean.setOrder(1);
+	  registrationBean.setName("SSOClientFilter"); registrationBean.setOrder(3);
 	  
 	  return registrationBean;
 	  
@@ -50,7 +50,7 @@ public class WebConfig {
 		  List<String> urls = new ArrayList<String>(); 
 		  urls.add("/*"); registrationBean.setUrlPatterns(urls);
 		  registrationBean.setName("RORFilter");
-		  registrationBean.setOrder(2);
+		  registrationBean.setOrder(4);
 		  
 		  return registrationBean;
 		  
@@ -69,7 +69,7 @@ public class WebConfig {
 	  registrationBean.setFilter(filterTest2); List<String> urls = new
 	  ArrayList<String>(); urls.add("/*"); registrationBean.setUrlPatterns(urls);
 	  registrationBean.setName("test2Filter");
-	  registrationBean.setOrder(3);
+	  registrationBean.setOrder(5); 
 	  
 	  return registrationBean;
 	  
