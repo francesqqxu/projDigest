@@ -1,21 +1,44 @@
 package com.chinasofti.projectDigest.shiro;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.chinasofti.projectDigest.dao.TPermissionMapper;
+import com.chinasofti.projectDigest.dao.TRoleMapper;
+import com.chinasofti.projectDigest.dao.TUserMapper;
+import com.chinasofti.projectDigest.pojo.TPermission;
+import com.chinasofti.projectDigest.pojo.TRole;
+import com.chinasofti.projectDigest.pojo.TRoleExample;
+import com.chinasofti.projectDigest.pojo.TUser;
+import com.chinasofti.projectDigest.pojo.TUserExample;
 
 public class MyRealm extends AuthorizingRealm{
 
     private static final Logger logger = LoggerFactory.getLogger(MyRealm.class);
 
-   
+    @Autowired
+    private  TUserMapper tUserMapper;
+    
+    //@Autowired
+    //private TRoleMapper tRoleMapper;
+    
+    //@Autowired
+    //private TPermissionMapper tPermissionMapper;
+    
+    
 
     /**
      * 权限认证，为当前登录的Subject授予角色和权限 
@@ -28,19 +51,35 @@ public class MyRealm extends AuthorizingRealm{
         logger.info("##################执行Shiro权限认证##################");
         //获取当前登录输入的用户名，等价于(String) principalCollection.fromRealm(getName()).iterator().next();
         String loginName = (String)super.getAvailablePrincipal(principalCollection); 
+        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
         //到数据库查是否有此对象
-		/*
-		 * User user=userDao.findByName(loginName);//
-		 * 实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法 if(user!=null){
-		 * //权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission） SimpleAuthorizationInfo
-		 * info=new SimpleAuthorizationInfo(); //用户的角色集合
-		 * info.setRoles(user.getRolesName()); //用户的角色对应的所有权限，如果只使用角色定义访问权限，下面的四行可以不要
-		 * List<Role> roleList=user.getRoleList(); for (Role role : roleList) {
-		 * info.addStringPermissions(role.getPermissionsName()); } // 或者按下面这样添加
-		 * //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色 // simpleAuthorInfo.addRole("admin");
-		 * //添加权限 // simpleAuthorInfo.addStringPermission("admin:manage"); //
-		 * logger.info("已为用户[mike]赋予了[admin]角色和[admin:manage]权限"); return info; }
-		 */
+		
+		
+		  TUser user = tUserMapper.findByName(loginName);
+		  
+		  //实际项目中，这里可以根据实际情况做缓存，如果不做，Shiro自己也是有时间间隔机制，2分钟内不会重复执行该方法 
+		  if(user!=null){
+			  //权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission） SimpleAuthorizationInfo
+			  info=new SimpleAuthorizationInfo();
+			  //用户的角色集合
+			  //info.setRoles(user.getRolesName()); 
+			  //用户的角色对应的所有权限，如果只使用角色定义访问权限，下面的四行可以不要
+			  //List<Role> roleList=user.getRoleList(); 
+			  //for (Role role : roleList) {
+			  //info.addStringPermissions(role.getPermissionsName());
+			  //} 
+			  // 或者按下面这样添加
+			  //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
+			  // simpleAuthorInfo.addRole("admin");
+			  //添加权限
+			  // simpleAuthorInfo.addStringPermission("admin:manage"); //
+			  info.addRoles(user.getRoleList());
+			  info.addStringPermissions(user.getPermissionList());
+			  return info;
+		  }
+		  //logger.info("已为用户[mike]赋予了[admin]角色和[admin:manage]权限"); return info; }
+		 
+		 
         // 返回null的话，就会导致任何用户访问被拦截的请求时，都会自动跳转到unauthorizedUrl指定的地址
         return null;
     }
@@ -64,7 +103,29 @@ public class MyRealm extends AuthorizingRealm{
 		 * }
 		 */
         String userName = token.getUsername();
-        return new  SimpleAuthenticationInfo(userName,userName,getName());
+        
+        TUser  tUser = tUserMapper.findByName(userName);
+        
+       // List<TRole> roles = tRoleMapper.findRoleByUId(tUser.getId());
+        //List<TPermission> permissions = tPermissionMapper.findPermissionByUId(tUser.getId());
+        List<String> roleStrList = new ArrayList<String>();
+        List<String> permStrList= new ArrayList<String>();
+        
+		/*
+		 * for(TRole role: roles) { roleStrList.add(role.getName()); }
+		 */
+        
+		/*
+		 * for(TPermission perm: permissions) { permStrList.add(perm.getName()); }
+		 */
+        
+        tUser.setRoleList(roleStrList);
+        tUser.setPermissionList(permStrList);
+        
+        return new SimpleAuthenticationInfo(tUser.getUsername(),tUser.getUsername(),getName());
+        
+        
         
     }
 }
+ 

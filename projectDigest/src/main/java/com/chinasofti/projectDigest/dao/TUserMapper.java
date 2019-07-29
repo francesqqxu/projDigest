@@ -74,4 +74,22 @@ public interface TUserMapper {
 	 * @mbg.generated
 	 */
 	int updateByPrimaryKey(TUser record);
+
+	TUser findByName(@Param("userName") String userName);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

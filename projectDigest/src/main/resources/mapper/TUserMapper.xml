@@ -255,4 +255,15 @@
       chinesename = #{chinesename,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="findByName" resultMap="BaseResultMap">
+     select <include refid="Base_Column_List" /> from t_user
+     <where>
+     	username=#{0}
+  	 </where> 
+  </select>
+  
+  
+  
+ 
 </mapper>
