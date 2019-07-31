@@ -75,7 +75,7 @@ public interface TUserMapper {
 	 */
 	int updateByPrimaryKey(TUser record);
 
-	TUser findByName(@Param("userName") String userName);
+	TUser findByName(@Param("username") String username);
 	
 	
 	

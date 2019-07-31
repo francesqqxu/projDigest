@@ -242,9 +242,9 @@
   </update>
   
   <!-- 获取用户角色 -->
-  <select id="findRoleByUId" resultMap="BaseResultMaps">
-      select role.id, role.roleName  from t_user_role uRole  left join t_role role on 
-      uRole.userId = #{0} 
+  <select id="findRoleByUId" resultMap="BaseResultMap">
+      select role.id, role.name  from t_user_role uRole  left join t_role role on 
+      uRole.user_id = #{userId} 
    </select>
   
   

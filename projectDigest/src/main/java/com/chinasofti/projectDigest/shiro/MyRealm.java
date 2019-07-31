@@ -32,11 +32,11 @@ public class MyRealm extends AuthorizingRealm{
     @Autowired
     private  TUserMapper tUserMapper;
     
-    //@Autowired
-    //private TRoleMapper tRoleMapper;
+    @Autowired
+    private TRoleMapper tRoleMapper;
     
-    //@Autowired
-    //private TPermissionMapper tPermissionMapper;
+    @Autowired
+    private TPermissionMapper tPermissionMapper;
     
     
 
@@ -102,12 +102,12 @@ public class MyRealm extends AuthorizingRealm{
 		 * SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), getName());
 		 * }
 		 */
-        String userName = token.getUsername();
+        String username = token.getUsername();
         
-        TUser  tUser = tUserMapper.findByName(userName);
+        TUser  tUser = tUserMapper.findByName(username);
         
-       // List<TRole> roles = tRoleMapper.findRoleByUId(tUser.getId());
-        //List<TPermission> permissions = tPermissionMapper.findPermissionByUId(tUser.getId());
+        List<TRole> roles = tRoleMapper.findRoleByUId(tUser.getId());
+        List<TPermission> permissions = tPermissionMapper.findPermissionByUId(tUser.getId());
         List<String> roleStrList = new ArrayList<String>();
         List<String> permStrList= new ArrayList<String>();
         

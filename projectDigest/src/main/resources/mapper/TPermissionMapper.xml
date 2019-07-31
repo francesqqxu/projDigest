@@ -242,9 +242,9 @@
   </update>
   
   <!-- 获取用户权限 -->
-  <select id="findPermissionByUId" resultMap="">
-     select  perm.*  from t_user_role urole left join t_role_permission rPerm on urole.roleId= rPerm.roleId left join 
-     t_permission perm on perm.id = rPerm.permId where urole.userId = #{0}
+  <select id="findPermissionByUId" resultMap="BaseResultMap">
+     select  perm.*  from t_user_role urole left join t_role_permission rPerm on urole.role_id= rPerm.role_id left join 
+     t_permission perm on perm.id = rPerm.perm_id where urole.user_id = #{userId}
   
   </select>
   

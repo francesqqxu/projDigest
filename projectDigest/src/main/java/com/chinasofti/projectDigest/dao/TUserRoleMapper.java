@@ -4,7 +4,9 @@ import com.chinasofti.projectDigest.pojo.TUserRole;
 import com.chinasofti.projectDigest.pojo.TUserRoleExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TUserRoleMapper {
 
 	/**
