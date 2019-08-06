@@ -12,8 +12,10 @@ import org.slf4j.LoggerFactory;
 
 import com.chinasofti.projectDigest.exception.TipException;
 import com.chinasofti.projectDigest.pojo.TProjdigest;
+import com.chinasofti.projectDigest.pojo.TProjdigestExample;
 import com.chinasofti.projectDigest.pojo.TProjdigestOld;
 import com.chinasofti.projectDigest.service.impl.MyBatisProjDigestServiceImpl;
+import com.chinasofti.projectDigest.utils.ServiceUtil.RuleViolation;
 
 public class ServiceUtil {
 	
@@ -133,7 +135,7 @@ public class ServiceUtil {
 		
 		if(titlesMap.size() != titles.size()) {
     		//throw new TipException(fileName + "  项目摘要表所列项同标准格式不一致，请检查！ " );
-			LOGGER.info("titleMapsSize({}), titlesSize({})",titlesMap.size(), titles.size());
+			//LOGGER.info("titleMapsSize({}), titlesSize({})",titlesMap.size(), titles.size());
 			return new RuleViolation(fileName , "  项目摘要表所列项同标准格式不一致，请检查！\n" );
 	   	}
     	return null;
@@ -161,6 +163,18 @@ public class ServiceUtil {
 			 
 	}
 	
+	public RuleViolation nullProjOutcomeID( String fileName) {
+		
+		//检查proj_outcome_id是否为空
+		 
+		return new RuleViolation(fileName , "项目成果ID为空，请检查！" );
+	   
+	}
+	
+	public RuleViolation dupProjOutcomeID(String fileName) {
+		
+		 return new RuleViolation(fileName,"项目成果ID重复，请检查！");
+	}
 	
 	public   List<String> transferToColumnTitle(String fileName,List<String> titles) {
 		

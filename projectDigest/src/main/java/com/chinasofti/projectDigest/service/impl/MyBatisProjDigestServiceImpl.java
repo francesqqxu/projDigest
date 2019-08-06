@@ -55,14 +55,15 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 		 
 		List<TProjdigestOld>  tProjdigestOlds = new ArrayList<TProjdigestOld>();
 		List<RuleViolation> RuleViolations = new ArrayList<RuleViolation>();
-		RuleViolation ruleViolation = null;
 		
-		LOGGER.info("files.length: {}", files.length);
+  		RuleViolation ruleViolation = null;
+		
+		//LOGGER.info("files.length: {}", files.length);
 		 
-		LOGGER.info("fileSize: {}",files[0].getSize());
-		LOGGER.info("fileName: {}",files[0].getOriginalFilename());
-		LOGGER.info("fileContentType: {}", files[0].getContentType());
-		LOGGER.info("fileResouce: {}", files[0].getResource());
+		//LOGGER.info("fileSize: {}",files[0].getSize());
+		//LOGGER.info("fileName: {}",files[0].getOriginalFilename());
+		//LOGGER.info("fileContentType: {}", files[0].getContentType());
+		//LOGGER.info("fileResouce: {}", files[0].getResource());
 		if(files.length <=1 && files[0].getSize() <=0 ) {
 			throw new TipException("请选择需要导入的文件！");
 		}
@@ -75,9 +76,9 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 			tProjdigestOldMapper.deleteByExample(example);
 			
 			/*删除新的项目摘要表中已导入内容，is_import="1" */
-			TProjdigestExample tProjdigestExample = new TProjdigestExample();
-			tProjdigestExample.createCriteria().andIsImportEqualTo("1");
-			tProjdigestMapper.deleteByExample(tProjdigestExample);
+			//TProjdigestExample tProjdigestExample = new TProjdigestExample();
+			//tProjdigestExample.createCriteria().andIsImportEqualTo("1");
+			//tProjdigestMapper.deleteByExample(tProjdigestExample);
 			ServiceUtil serviceUtil = ServiceUtil.getInstance();
 			
 			for(MultipartFile excelfile : files) {
@@ -119,10 +120,11 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 					throw new TipException( serviceUtil.RuleViolationsString(RuleViolations));
 				}
 			
-				for(TProjdigestOld tProjdigestOld:tProjdigestOlds ) {
-					LOGGER.info("tProjDigestsOld[{}].projOutComeId = {}", tProjdigestOlds.indexOf(tProjdigestOld),tProjdigestOld.getProjOutcomeId());
-				}
-		
+			/*
+			 * for(TProjdigestOld tProjdigestOld:tProjdigestOlds ) {
+			 * LOGGER.info("tProjDigestsOld[{}].projOutComeId = {}",
+			 * tProjdigestOlds.indexOf(tProjdigestOld),tProjdigestOld.getProjOutcomeId()); }
+			 */
 				LOGGER.info("tProjDigestOlds number {}",tProjdigestOlds.size());
 		        
 				List<TProjdigest> tProjdigests = serviceUtil.OldProjdigestToProjdigest(tProjdigestOlds);
@@ -138,8 +140,47 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 					tProjdigestOldMapper.insert3(tProjdigestOld);
 			    }
 				
+				//清除规则冲突数组
+				RuleViolations.clear();
+				List<TProjdigest>  tempProjdigests  = new ArrayList<TProjdigest>();
+				
 				for(TProjdigest tProjdigest:tProjdigests) {
-					tProjdigestMapper.insert3(tProjdigest);
+					
+					if(null == tProjdigest.getProjOutcomeId() ) {
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjName());
+				        if(null != ruleViolation) {
+				        	RuleViolations.add(ruleViolation);
+				        }
+						
+					}else if (tProjdigest.getProjOutcomeId().trim().equals("")) {
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjName());
+				        if(null != ruleViolation) {
+				        	RuleViolations.add(ruleViolation);
+				        }
+						
+					}else {
+					 
+						TProjdigestExample tProjdigestExample = new TProjdigestExample();
+				        tProjdigestExample.createCriteria().andProjOutcomeIdEqualTo(tProjdigest.getProjOutcomeId());
+				        tempProjdigests = tProjdigestMapper.selectByExample(tProjdigestExample);
+				        if (tempProjdigests.size() >= 1 ) {
+				        	ruleViolation = serviceUtil.dupProjOutcomeID(tProjdigest.getProjOutcomeId());
+				        	if(null != ruleViolation) {
+				        		RuleViolations.add(ruleViolation);
+				        	}
+				        }
+				        else {
+							tProjdigestMapper.insert3(tProjdigest);
+						}
+					}
+					 
+				}
+				
+				if(RuleViolations.size() > 0 ) {
+					LOGGER.info("项目成果ID为空或是重复的文件数： {}",RuleViolations.size());
+					//LOGGER.info(serviceUtil.RuleViolationsString(RuleViolations));
+					serviceUtil.LogRuleViolations(RuleViolations);
+					throw new TipException( serviceUtil.RuleViolationsString(RuleViolations));
 				}
 				
 				

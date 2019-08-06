@@ -144,7 +144,7 @@ public class ExcelUtils {
         
         //sheet = wb.getSheetAt(0);  
         int rowNum = sheet.getLastRowNum();   
-        logger.info("rownum : {}" , rowNum);
+        //logger.info("rownum : {}" , rowNum);
         List<String> titles = new ArrayList<String>();  
         int j = 0;
         String title = "";
@@ -158,7 +158,7 @@ public class ExcelUtils {
 	        		 if(cellValue != "") {
 		        		 if(!cellValue.matches("注意：尽量不要插入自定义字段(.*)")) {
 			        		 titles.add(cellValue);
-				             logger.info("title[{}] = {}", i, titles.get(j));
+				             //logger.info("title[{}] = {}", i, titles.get(j));
 				             j++;
 		        		 }
 	        		 }

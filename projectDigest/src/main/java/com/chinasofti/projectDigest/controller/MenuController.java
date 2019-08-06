@@ -41,7 +41,7 @@ public class MenuController {
 		LOGGER.info("/get_menu");
 		HttpServletRequest httpReq = (HttpServletRequest)request;
 		
-		TempUtil.getReqInfo(httpReq);
+		//TempUtil.getReqInfo(httpReq);
 		if(null == id) {
 			id = 0;
 		}
