@@ -144,18 +144,24 @@ public class ExcelUtils {
         
         //sheet = wb.getSheetAt(0);  
         int rowNum = sheet.getLastRowNum();   
-        //logger.info("rownum : {}" , rowNum);
+        logger.info("rownum : {}" , rowNum);
         List<String> titles = new ArrayList<String>();  
         int j = 0;
-        for (int i = 1; i < rowNum; i++) { 
+        String title = "";
+        for (int i = 1; i <= rowNum; i++) { 
         	 row = sheet.getRow(i);
         	 if(null != row) {
 	        	//logger.info("row.getCell({}) = {}", i, row.getCell(0));
-	        	if(null != row.getCell(0)) {
+        		 
+	        	if(null != row.getCell(0) ) {
 	        		 cellValue = (String)getCellFormatValue(row.getCell(0)); 
-	        		 titles.add(cellValue);
-		            //logger.info("title[{}] = {}", i, titles[j]);
-		             j++;
+	        		 if(cellValue != "") {
+		        		 if(!cellValue.matches("注意：尽量不要插入自定义字段(.*)")) {
+			        		 titles.add(cellValue);
+				             logger.info("title[{}] = {}", i, titles.get(j));
+				             j++;
+		        		 }
+	        		 }
 	        	}
         	 }
         }
