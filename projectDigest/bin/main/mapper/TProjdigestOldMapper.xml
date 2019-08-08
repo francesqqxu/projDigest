@@ -54,6 +54,7 @@
     <result column="remaining_prob" jdbcType="VARCHAR" property="remainingProb" />
     <result column="market_competi" jdbcType="VARCHAR" property="marketCompeti" />
     <result column="constraint_depend" jdbcType="VARCHAR" property="constraintDepend" />
+    <result column="import_file_name" jdbcType="VARCHAR" property="importFileName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -134,7 +135,7 @@
     proj_begin_date, proj_end_date, input_date, proj_state, business_tech_key1, business_tech_key2, 
     business_tech_key3, business_brief, business_func, performance_index, system_soft, 
     system_hard, system_architec, relavent_standard, key_tech_skills, usetools, remaining_prob, 
-    market_competi, constraint_depend
+    market_competi, constraint_depend, import_file_name
   </sql>
   <select id="selectByExample" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOldExample" resultMap="BaseResultMap">
     <!--
@@ -205,8 +206,8 @@
       business_brief, business_func, performance_index, 
       system_soft, system_hard, system_architec, 
       relavent_standard, key_tech_skills, usetools, 
-      remaining_prob, market_competi, constraint_depend
-      )
+      remaining_prob, market_competi, constraint_depend, 
+      import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
@@ -222,8 +223,8 @@
       #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
       #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
-      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
-      )
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}, 
+      #{importFileName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOld">
     <!--
@@ -377,6 +378,9 @@
       <if test="constraintDepend != null">
         constraint_depend,
       </if>
+      <if test="importFileName != null">
+        import_file_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       #{id,jdbcType=INTEGER},
@@ -520,6 +524,9 @@
       </if>
       <if test="constraintDepend != null">
         #{constraintDepend,jdbcType=VARCHAR},
+      </if>
+      <if test="importFileName != null">
+        #{importFileName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -684,6 +691,9 @@
       <if test="record.constraintDepend != null">
         constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR},
       </if>
+      <if test="record.importFileName != null">
+        import_file_name = #{record.importFileName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -742,7 +752,8 @@
       usetools = #{record.usetools,jdbcType=VARCHAR},
       remaining_prob = #{record.remainingProb,jdbcType=VARCHAR},
       market_competi = #{record.marketCompeti,jdbcType=VARCHAR},
-      constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR}
+      constraint_depend = #{record.constraintDepend,jdbcType=VARCHAR},
+      import_file_name = #{record.importFileName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -895,6 +906,9 @@
       <if test="constraintDepend != null">
         constraint_depend = #{constraintDepend,jdbcType=VARCHAR},
       </if>
+      <if test="importFileName != null">
+        import_file_name = #{importFileName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -950,7 +964,8 @@
       usetools = #{usetools,jdbcType=VARCHAR},
       remaining_prob = #{remainingProb,jdbcType=VARCHAR},
       market_competi = #{marketCompeti,jdbcType=VARCHAR},
-      constraint_depend = #{constraintDepend,jdbcType=VARCHAR}
+      constraint_depend = #{constraintDepend,jdbcType=VARCHAR},
+      import_file_name = #{importFileName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
@@ -971,8 +986,8 @@
       business_brief, business_func, performance_index, 
       system_soft, system_hard, system_architec, 
       relavent_standard, key_tech_skills, usetools, 
-      remaining_prob, market_competi, constraint_depend
-      )
+      remaining_prob, market_competi, constraint_depend, 
+      import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
@@ -988,8 +1003,8 @@
       #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
       #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
-      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
-      )
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}, 
+      #{importFileName,jdbcType=VARCHAR})
   </insert>
   
   <insert id="insert3" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestOld">
@@ -1010,8 +1025,8 @@
       business_brief, business_func, performance_index, 
       system_soft, system_hard, system_architec, 
       relavent_standard, key_tech_skills, usetools, 
-      remaining_prob, market_competi, constraint_depend
-      )
+      remaining_prob, market_competi, constraint_depend, 
+      import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{relateProjName1,jdbcType=VARCHAR}, #{relateProjName2,jdbcType=VARCHAR}, #{relateProjName3,jdbcType=VARCHAR}, 
@@ -1027,8 +1042,9 @@
       #{businessBrief,jdbcType=VARCHAR}, #{businessFunc,jdbcType=VARCHAR}, #{performanceIndex,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{systemArchitec,jdbcType=VARCHAR}, 
       #{relaventStandard,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{usetools,jdbcType=VARCHAR}, 
-      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}
-      )
+      #{remainingProb,jdbcType=VARCHAR}, #{marketCompeti,jdbcType=VARCHAR}, #{constraintDepend,jdbcType=VARCHAR}, 
+      #{importFileName,jdbcType=VARCHAR}) 
+       
       <selectKey keyColumn="id" keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       	SELECT LAST_INSERT_ID()
       </selectKey>

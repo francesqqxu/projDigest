@@ -288,6 +288,7 @@ public class ServiceUtil {
 			tProjdigest.setProjBrief(projBrief);
 			tProjdigest.setKeyTechSkills(keyTech);
 			tProjdigest.setIsImport("1");
+			tProjdigest.setImportFileName(tProjdigestOld.getImportFileName());
 			tProjDigests.add(tProjdigest);
 		}
 		

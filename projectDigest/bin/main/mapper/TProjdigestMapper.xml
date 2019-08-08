@@ -31,6 +31,7 @@
     <result column="key_tech_skills" jdbcType="VARCHAR" property="keyTechSkills" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="is_import" jdbcType="VARCHAR" property="isImport" />
+    <result column="import_file_name" jdbcType="VARCHAR" property="importFileName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -107,7 +108,7 @@
     proj_end_date, archive_path, proj_manager_name, proj_manage_id, proj_manage_email, 
     proj_manage_tel, industry_category, field_category, application_category, used_language, 
     system_soft, system_hard, used_database, test_framework, key_tech_skills, user_id, 
-    is_import
+    is_import, import_file_name
   </sql>
   <select id="selectByExample" parameterType="com.chinasofti.projectDigest.pojo.TProjdigestExample" resultMap="BaseResultMap">
     <!--
@@ -171,7 +172,7 @@
       field_category, application_category, used_language, 
       system_soft, system_hard, used_database, 
       test_framework, key_tech_skills, user_id, 
-      is_import)
+      is_import, import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{projBrief,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, 
@@ -180,7 +181,7 @@
       #{fieldCategory,jdbcType=VARCHAR}, #{applicationCategory,jdbcType=VARCHAR}, #{usedLanguage,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{usedDatabase,jdbcType=VARCHAR}, 
       #{testFramework,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{isImport,jdbcType=VARCHAR})
+      #{isImport,jdbcType=VARCHAR}, #{importFileName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.chinasofti.projectDigest.pojo.TProjdigest">
     <!--
@@ -265,6 +266,9 @@
       <if test="isImport != null">
         is_import,
       </if>
+      <if test="importFileName != null">
+        import_file_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       #{id,jdbcType=INTEGER},
@@ -339,6 +343,9 @@
       </if>
       <if test="isImport != null">
         #{isImport,jdbcType=VARCHAR},
+      </if>
+      <if test="importFileName != null">
+        #{importFileName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -434,6 +441,9 @@
       <if test="record.isImport != null">
         is_import = #{record.isImport,jdbcType=VARCHAR},
       </if>
+      <if test="record.importFileName != null">
+        import_file_name = #{record.importFileName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -469,7 +479,8 @@
       test_framework = #{record.testFramework,jdbcType=VARCHAR},
       key_tech_skills = #{record.keyTechSkills,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=VARCHAR},
-      is_import = #{record.isImport,jdbcType=VARCHAR}
+      is_import = #{record.isImport,jdbcType=VARCHAR},
+      import_file_name = #{record.importFileName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -553,6 +564,9 @@
       <if test="isImport != null">
         is_import = #{isImport,jdbcType=VARCHAR},
       </if>
+      <if test="importFileName != null">
+        import_file_name = #{importFileName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -585,13 +599,14 @@
       test_framework = #{testFramework,jdbcType=VARCHAR},
       key_tech_skills = #{keyTechSkills,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=VARCHAR},
-      is_import = #{isImport,jdbcType=VARCHAR}
+      is_import = #{isImport,jdbcType=VARCHAR},
+      import_file_name = #{importFileName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
   <insert id="insert2" keyProperty="id" parameterType="com.chinasofti.projectDigest.pojo.TProjdigest" useGeneratedKeys="true">
      
-    insert into t_projdigest (id, proj_outcome_id, lob, 
+     insert into t_projdigest (id, proj_outcome_id, lob, 
       proj_name, proj_num, cust_name, 
       proj_brief, proj_begin_date, proj_end_date, 
       archive_path, proj_manager_name, proj_manage_id, 
@@ -599,7 +614,7 @@
       field_category, application_category, used_language, 
       system_soft, system_hard, used_database, 
       test_framework, key_tech_skills, user_id, 
-      is_import)
+      is_import, import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{projBrief,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, 
@@ -608,7 +623,7 @@
       #{fieldCategory,jdbcType=VARCHAR}, #{applicationCategory,jdbcType=VARCHAR}, #{usedLanguage,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{usedDatabase,jdbcType=VARCHAR}, 
       #{testFramework,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{isImport,jdbcType=CHAR})
+      #{isImport,jdbcType=VARCHAR}, #{importFileName,jdbcType=VARCHAR})
   </insert>
   
   <insert id="insert3" parameterType="com.chinasofti.projectDigest.pojo.TProjdigest">
@@ -621,7 +636,7 @@
       field_category, application_category, used_language, 
       system_soft, system_hard, used_database, 
       test_framework, key_tech_skills, user_id, 
-      is_import)
+      is_import, import_file_name)
     values (#{id,jdbcType=INTEGER}, #{projOutcomeId,jdbcType=VARCHAR}, #{lob,jdbcType=VARCHAR}, 
       #{projName,jdbcType=VARCHAR}, #{projNum,jdbcType=VARCHAR}, #{custName,jdbcType=VARCHAR}, 
       #{projBrief,jdbcType=VARCHAR}, #{projBeginDate,jdbcType=VARCHAR}, #{projEndDate,jdbcType=VARCHAR}, 
@@ -630,7 +645,7 @@
       #{fieldCategory,jdbcType=VARCHAR}, #{applicationCategory,jdbcType=VARCHAR}, #{usedLanguage,jdbcType=VARCHAR}, 
       #{systemSoft,jdbcType=VARCHAR}, #{systemHard,jdbcType=VARCHAR}, #{usedDatabase,jdbcType=VARCHAR}, 
       #{testFramework,jdbcType=VARCHAR}, #{keyTechSkills,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
-      #{isImport,jdbcType=CHAR})
+      #{isImport,jdbcType=VARCHAR}, #{importFileName,jdbcType=VARCHAR})
       <selectKey keyColumn="id" keyProperty="id" order="AFTER" resultType="Integer">
 		SELECT LAST_INSERT_ID()
 	  </selectKey>

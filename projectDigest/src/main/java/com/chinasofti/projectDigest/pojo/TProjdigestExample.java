@@ -1902,6 +1902,76 @@ public class TProjdigestExample {
 			addCriterion("is_import not between", value1, value2, "isImport");
 			return (Criteria) this;
 		}
+
+		public Criteria andImportFileNameIsNull() {
+			addCriterion("import_file_name is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameIsNotNull() {
+			addCriterion("import_file_name is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameEqualTo(String value) {
+			addCriterion("import_file_name =", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameNotEqualTo(String value) {
+			addCriterion("import_file_name <>", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameGreaterThan(String value) {
+			addCriterion("import_file_name >", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameGreaterThanOrEqualTo(String value) {
+			addCriterion("import_file_name >=", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameLessThan(String value) {
+			addCriterion("import_file_name <", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameLessThanOrEqualTo(String value) {
+			addCriterion("import_file_name <=", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameLike(String value) {
+			addCriterion("import_file_name like", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameNotLike(String value) {
+			addCriterion("import_file_name not like", value, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameIn(List<String> values) {
+			addCriterion("import_file_name in", values, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameNotIn(List<String> values) {
+			addCriterion("import_file_name not in", values, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameBetween(String value1, String value2) {
+			addCriterion("import_file_name between", value1, value2, "importFileName");
+			return (Criteria) this;
+		}
+
+		public Criteria andImportFileNameNotBetween(String value1, String value2) {
+			addCriterion("import_file_name not between", value1, value2, "importFileName");
+			return (Criteria) this;
+		}
 	}
 
 	/**

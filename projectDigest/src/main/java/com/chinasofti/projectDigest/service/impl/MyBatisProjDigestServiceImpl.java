@@ -103,7 +103,7 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 								TProjdigestOld tProjDigestOld = new TProjdigestOld();
 									
 								tProjDigestOld = ExcelUtils.transToObject(titlesColumn, cellValues, TProjdigestOld.class);
-								    
+								tProjDigestOld.setImportFileName(fileName);   
 							    tProjdigestOlds.add(tProjDigestOld);
 							}
 							 
@@ -147,13 +147,13 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 				for(TProjdigest tProjdigest:tProjdigests) {
 					
 					if(null == tProjdigest.getProjOutcomeId() ) {
-						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjNum());
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getImportFileName());
 				        if(null != ruleViolation) {
 				        	RuleViolations.add(ruleViolation);
 				        }
 						
 					}else if (tProjdigest.getProjOutcomeId().trim().equals("")) {
-						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjNum());
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getImportFileName());
 				        if(null != ruleViolation) {
 				        	RuleViolations.add(ruleViolation);
 				        }
