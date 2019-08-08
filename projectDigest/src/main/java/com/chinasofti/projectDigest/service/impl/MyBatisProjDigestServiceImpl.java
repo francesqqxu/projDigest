@@ -147,13 +147,13 @@ public class MyBatisProjDigestServiceImpl implements MyBatisProjDigestService {
 				for(TProjdigest tProjdigest:tProjdigests) {
 					
 					if(null == tProjdigest.getProjOutcomeId() ) {
-						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjName());
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjNum());
 				        if(null != ruleViolation) {
 				        	RuleViolations.add(ruleViolation);
 				        }
 						
 					}else if (tProjdigest.getProjOutcomeId().trim().equals("")) {
-						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjName());
+						ruleViolation = serviceUtil.nullProjOutcomeID(tProjdigest.getProjNum());
 				        if(null != ruleViolation) {
 				        	RuleViolations.add(ruleViolation);
 				        }
