@@ -1,10 +1,12 @@
 package com.chinasofti.projectDigest.controller;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +21,10 @@ import com.chinasofti.projectDigest.configure.ConfigBeanProp;
 import com.chinasofti.projectDigest.controller.helper.ExceptionHelper;
 import com.chinasofti.projectDigest.dto.Lob;
 import com.chinasofti.projectDigest.dto.RestResponseBo;
+import com.chinasofti.projectDigest.exception.TipException;
 import com.chinasofti.projectDigest.pojo.TProjdigest;
 import com.chinasofti.projectDigest.service.MyBatisProjDigestService;
+import com.chinasofti.projectDigest.utils.ExcelUtils;
 import com.github.pagehelper.PageInfo;
  
  
@@ -62,7 +66,7 @@ public class ProjDigestController {
 	     LOGGER.info("multiUploading");	
 	     String userId = request.getRemoteUser();
 	     String admin = configBeanProp.getAdmin();
-	      
+	     
 	     if(userId.equals(admin)) {
 		     try {
 		    	 myBatisProjDigestService.addProjDigests(files);
@@ -92,27 +96,47 @@ public class ProjDigestController {
 	public Object getProjDigestList(@RequestParam("order")String order,@RequestParam("page")int page, @RequestParam("rows") int rows
 				,@RequestParam("sort")String sort,@RequestParam("projOutcomeId") String projOutcomeId
 				, @RequestParam("projName")String projName,@RequestParam("projNum") String projNum
-				, @RequestParam("lob")String lob ){
+				, @RequestParam("lob")String lob , @RequestParam("keyWord") String keyWord){
 		LOGGER.info("get_projDigest");
 		LOGGER.info("order: " + order);
 		LOGGER.info("page: " + page);
 		LOGGER.info("rows: " + rows);
 		LOGGER.info("sort: " + sort);
 		try { 
-			PageInfo<TProjdigest> pageInfo = myBatisProjDigestService.findProjDigests(order,page,rows,sort,projOutcomeId, projName,projNum, lob );
 			
-			for(TProjdigest projDigest: pageInfo.getList()) {
-				LOGGER.info("id: " + projDigest.getId());
-				LOGGER.info("projOutcomeId: " + projDigest.getProjOutcomeId());
-				LOGGER.info("lob: " + projDigest.getLob());
-				LOGGER.info("projName: " + projDigest.getProjName());
+			if(keyWord == "") {
+				PageInfo<TProjdigest> pageInfo = myBatisProjDigestService.findProjDigests(order,page,rows,sort,projOutcomeId, projName,projNum, lob );
+				
+				/*
+				 * for(TProjdigest projDigest: pageInfo.getList()) { LOGGER.info("id: " +
+				 * projDigest.getId()); LOGGER.info("projOutcomeId: " +
+				 * projDigest.getProjOutcomeId()); LOGGER.info("lob: " + projDigest.getLob());
+				 * LOGGER.info("projName: " + projDigest.getProjName()); }
+				 */
+				
+				Map<Object,Object> resultMap = new HashMap<Object,Object>();
+				resultMap.put("total", pageInfo.getTotal());
+				resultMap.put("rows", pageInfo.getList());
+				LOGGER.info("resultMap:" + resultMap.get("total"));
+				return resultMap;	
 			}
-			
-			Map<Object,Object> resultMap = new HashMap<Object,Object>();
-			resultMap.put("total", pageInfo.getTotal());
-			resultMap.put("rows", pageInfo.getList());
-			LOGGER.info("resultMap:" + resultMap.get("total"));
-			return resultMap;		
+			else {
+				//PageInfo<TProjdigest> pageInfo = myBatisProjDigestService.findProjDigestsByKeyWord(order,page,rows,sort,keyWord );
+				PageInfo<TProjdigest> pageInfo = myBatisProjDigestService.findProjDigests(order,page,rows,sort,projOutcomeId, projName,projNum, lob );
+				
+				/*
+				 * for(TProjdigest projDigest: pageInfo.getList()) { LOGGER.info("id: " +
+				 * projDigest.getId()); LOGGER.info("projOutcomeId: " +
+				 * projDigest.getProjOutcomeId()); LOGGER.info("lob: " + projDigest.getLob());
+				 * LOGGER.info("projName: " + projDigest.getProjName()); }
+				 */
+				
+				Map<Object,Object> resultMap = new HashMap<Object,Object>();
+				resultMap.put("total", pageInfo.getTotal());
+				resultMap.put("rows", pageInfo.getList());
+				LOGGER.info("resultMap:" + resultMap.get("total"));
+				return resultMap;	
+			}
 		}catch (Exception e) {
 			String msg = "查询摘要失败";
 	    	return ExceptionHelper.handlerException(LOGGER, msg, e); 
@@ -173,5 +197,48 @@ public class ProjDigestController {
 		return RestResponseBo.ok();
 	}
 	
+	
+	
+//	@RequestMapping("/projdigest.xls")
+//	public void exportExcel(HttpServletResponse response) throws NoSuchMethodException,InvocationTargetException,IllegalAccessException{
+//		
+//		//get data from database
+//		String projOutcomeId = "";
+//		String projName = "";
+//		String projNum = "";
+//		String lob = "";
+//		String userId = "";
+//		List<TProjdigest> tProjdigests = myBatisProjDigestService.getAllProjdigest(projOutcomeId, projName, projNum, lob, userId);
+//	
+//		String[] titles = ExcelUtils.getProjdigestTitiles();
+//	    List<Object[]> objectLists = ExcelUtils.dataToObjectList(tProjdigests);
+//		try {
+//			ExcelUtils.exportDataToExcel(objectLists, titles, response);
+//		}catch(Exception e) {
+//			throw new TipException("下载出错！");
+//		}
+	
+	
+//	}
+	
+	
+	
+	
+	
+	
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 			
-}
+ 
